@@ -25,3 +25,9 @@ import ContentVue from "@/views/topview/contentview.vue";
 }
 
 </style>
+<style>
+#app {
+   padding: 0;
+   display: flex;
+}
+</style>

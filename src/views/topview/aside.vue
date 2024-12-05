@@ -1,7 +1,7 @@
 <template>
-   <ul class="menu bg-base-200 rounded-box w-56">
+   <ul class="menu bg-purple-100 rounded-box w-56">
       <RouterLink to="/">
-         <ul class="bg-slate-300 rounded-box w-50">
+         <ul class="bg-purple-200 rounded-box w-50">
             <li class="aside-top">
                <div class="avatar">
                   <div class="w-10 rounded-full">
