@@ -24,6 +24,11 @@ const router = createRouter({
       name: 'blog',
       component: () => import ("@/views/contentview/blog.vue"),
     },
+    {
+      path: '/text',
+      name: 'text',
+      component: () => import ("@/views/contentview/project-centent/mes-kutangguo.vue"),
+    },
   ],
 })
 
