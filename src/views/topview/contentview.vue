@@ -1,5 +1,5 @@
 <template>
-   <div class="view-div rounded-box bg-base-200 ">
+   <div class="view-div">
       <RouterView></RouterView>
    </div>
 </template>

@@ -1,39 +1,50 @@
 <template>
    <div class="relative isolate overflow-hidden bg-white">
-     <svg class="absolute inset-0 -z-10 size-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
-       <defs>
-         <pattern id="0787a7c5-978c-4f66-83c7-11c213f99cb7" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
-           <path d="M.5 200V.5H200" fill="none" />
-         </pattern>
-       </defs>
-       <rect width="100%" height="100%" stroke-width="0" fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)" />
-     </svg>
-     <div class="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
-       <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
-         <img class="h-11" src="https://tailwindui.starxg.com/plus/img/logos/mark.svg?color=indigo&amp;shade=600" alt="Your Company" />
-         <div class="mt-24 sm:mt-32 lg:mt-16">
-           <a href="#" class="inline-flex space-x-6">
-             <span class="rounded-full bg-indigo-600/10 px-3 py-1 text-sm/6 font-semibold text-indigo-600 ring-1 ring-inset ring-indigo-600/10">What's new</span>
-             <span class="inline-flex items-center space-x-2 text-sm/6 font-medium text-gray-600">
-               <span>Just shipped v1.0</span>
-               <ChevronRightIcon class="size-5 text-gray-400" aria-hidden="true" />
-             </span>
-           </a>
-         </div>
-         <h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">Deploy to the cloud with confidence</h1>
+     <div class="">
+      <div class="mx-auto px-6 pt-8 lg:flex w-4/6">
+       <!-- 文字 -->
+       <div class="mx-auto max-w-96 lg:mx-0 lg:shrink-0 lg:pt-8">
+         <!-- 标题 -->
+         <h1 class="text-pretty text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">Deploy to the cloud with confidence</h1>
+         <!-- 介绍内容 -->
          <p class="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat.</p>
-         <div class="mt-10 flex items-center gap-x-6">
-           <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
-           <a href="#" class="text-sm/6 font-semibold text-gray-900">Learn more <span aria-hidden="true">→</span></a>
-         </div>
        </div>
+       <!-- 图片 -->
        <div class="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
          <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-           <div class="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
+           <div class="-m-2 rounded-xl bg-gray-900/5 p-2 lg:-m-4 lg:rounded-2xl lg:p-4">
              <img src="https://tailwindui.starxg.com/plus/img/component-images/project-app-screenshot.png" alt="App screenshot" width="2432" height="1442" class="w-[76rem] rounded-md shadow-2xl ring-1 ring-gray-900/10" />
            </div>
          </div>
        </div>
+      </div>
+       <!-- 轮播图片 -->
+       <div class="carousel w-2/4 m-16 rounded-box w-30">
+         <div id="slide1" class="carousel-item relative w-full">
+            <img
+               src="https://img.daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.webp"
+               class="w-1/2W object-cover" />
+            <img
+               src="https://img.daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.webp"
+               class="w-1/2" />
+            <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+               <a href="#slide1" class="btn btn-circle">❮</a>
+               <a href="#slide2" class="btn btn-circle">❯</a>
+            </div>
+         </div>
+         <div id="slide2" class="carousel-item relative w-full">
+            <img
+               src="https://img.daisyui.com/images/stock/photo-1414694762283-acccc27bca85.webp"
+               class="w-1/2" />
+            <img
+               src="https://img.daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.webp"
+               class="w-1/2" />
+            <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+               <a href="#slide1" class="btn btn-circle">❮</a>
+               <a href="#slide3" class="btn btn-circle">❯</a>
+            </div>
+         </div>
+      </div>
      </div>
    </div>
  </template>

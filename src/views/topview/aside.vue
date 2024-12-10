@@ -14,7 +14,6 @@
             </li>
          </ul>
       </RouterLink>
-      
    <li>
       <RouterLink to="home">
          <svg width="20" height="20" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18V42H39V18L24 6L9 18Z" fill="none" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 29V42H29V29H19Z" fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round"/><path d="M9 42H39" stroke="#333" stroke-width="4" stroke-linecap="round"/></svg>
@@ -48,5 +47,8 @@
 .aside-top {
    display: flex !important; 
    flex-direction: row;
+}
+@media screen {
+   
 }
 </style>
