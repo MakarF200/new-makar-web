@@ -5,20 +5,18 @@ import ContentVue from "@/views/topview/contentview.vue";
 </script>
 
 <template>
-  <div class="div-top">
-    <div class="asidevue">
+  <div class="div-top w-screen">
+    <div class="asidevue mr-2 bg-purple-50 rounded-box">
       <AsideVue></AsideVue>
     </div>
-    <div class="contentvue">
+    <div class="contentvue bg-purple-50 rounded-box flex-1">
       <ContentVue></ContentVue>
     </div>
   </div>
 </template>
 
 <style scoped>
-.asidevue {
-  margin-right: 0.5rem;
-}
+
 .div-top {
   display: flex;
   padding: 10px;

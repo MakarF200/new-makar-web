@@ -25,8 +25,8 @@ const router = createRouter({
       component: () => import ("@/views/contentview/blog.vue"),
     },
     {
-      path: '/text',
-      name: 'text',
+      path: '/test',
+      name: 'test',
       component: () => import ("@/views/contentview/project-centent/mes-kutangguo.vue"),
     },
   ],
