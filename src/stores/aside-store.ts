@@ -1,7 +1,8 @@
 import { ref, computed, watch } from 'vue'
 import { defineStore } from 'pinia'
 
-export const PinaiAsideData = defineStore('asideData', () => {
+
+export const PiniaAsideData = defineStore('asideData', () => {
    const dynamicViewData = ref({
       'basicView': true,
       'minView': false,
@@ -21,5 +22,6 @@ export const PinaiAsideData = defineStore('asideData', () => {
    console.log("Pinia : ",dynamicViewData.value);
    
   })
+
   return {dynamicViewData,doubleCount, modifyViewData }
 })

@@ -11,23 +11,29 @@
          </RouterLink>
          
       </div>
-      <div v-if="asideData.basicView" class="basic-menu">
-         <BasicMenu></BasicMenu>
-      </div>
-      <div v-if="asideData.minView" class="min-menu">
-         <MinMenu></MinMenu>
-      </div>
-      <div v-if="asideData.blogView" class="blog-menu">
-         <BlogMenu></BlogMenu>
-      </div>
+      <Transition>
+         <div v-if="asideData.basicView" class="basic-menu">
+            <BasicMenu></BasicMenu>
+         </div>
+      </Transition>
+      <Transition>
+         <div v-if="asideData.minView" class="min-menu">
+            <MinMenu></MinMenu>
+         </div>
+      </Transition>
+      <Transition>
+         <div v-if="asideData.blogView" class="blog-menu">
+            <BlogMenu></BlogMenu>
+         </div>
+      </Transition>
    </div>
 </template>
 <script lang="ts" setup>
    import { ref,computed } from 'vue'
    import { RouterLink, RouterView } from 'vue-router'
-   import { PinaiAsideData } from "@/stores/aside-store";
+   import { PiniaAsideData } from "@/stores/aside-store";
 
-   const asideStore = PinaiAsideData();
+   const asideStore = PiniaAsideData();
    const asideData = computed(() => asideStore.dynamicViewData);
 
    import BasicMenu from "@/views/contentview/aside-views/basic-menu.vue";

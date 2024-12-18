@@ -11,6 +11,9 @@
       <div class="h-36 mx-6 mt-4 mb-4 flex">
          <div class="bg-purple-200 rounded-box box-border w-1/2 mr-2">
             <img src="" alt="">
+            <div>
+
+            </div>
          </div>
          <div class="bg-purple-200 rounded-box box-border w-1/2 ml-2">
             <img src="" alt="">
@@ -34,7 +37,13 @@
       </div>
    </div>
 </template>
-<script>
+<script setup lang="ts">
+   import { ref,computed, onMounted } from 'vue'
+   import { PiniaBlogData } from "@/stores/blog-store";
+
+   const asideStore = PiniaBlogData();
+
+
 </script>
 <style scoped>
 

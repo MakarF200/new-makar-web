@@ -27,9 +27,9 @@
 <script setup lang="ts">
    import { ref,computed } from 'vue'
    import { RouterLink, RouterView } from 'vue-router'
-   import { PinaiAsideData } from "@/stores/aside-store";
+   import { PiniaAsideData } from "@/stores/aside-store";
 
-   const asideStore = PinaiAsideData();
+   const asideStore = PiniaAsideData();
    const asideData = computed(() => asideStore.dynamicViewData);
 
    const {modifyViewData} = asideStore;
