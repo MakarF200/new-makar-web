@@ -34,7 +34,13 @@ const router = createRouter({
       path: "/test",
       name: "test",
       component: () =>
-        import("@/views/contentview/project-centent/mes-kutangguo.vue"),
+        import("@/views/contentview/project-content/mes-kutangguo.vue"),
+    },
+    {
+      path: "/fourwheeled",
+      name: "fourwheeled",
+      component: () =>
+        import("@/views/contentview/project-content/Four-wheeled.vue"),
     },
   ],
 });

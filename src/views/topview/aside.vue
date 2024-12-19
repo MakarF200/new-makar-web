@@ -2,7 +2,7 @@
   <div style="width: 17rem">
     <div
       class="menu bg-purple-100 rounded-box w-full p-4 place-content-evenly"
-      style="height: 11rem"
+      style="height: 25vh"
     >
       <!-- <RouterLink to="/" class="p-0"> -->
       <div class="avatar">
@@ -13,21 +13,23 @@
       <p>Makar</p>
       <!-- </RouterLink> -->
     </div>
-    <Transition>
-      <div v-if="asideData.basicView" class="basic-menu">
-        <BasicMenu></BasicMenu>
-      </div>
-    </Transition>
-    <Transition>
-      <div v-if="asideData.minView" class="min-menu">
-        <MinMenu></MinMenu>
-      </div>
-    </Transition>
-    <Transition>
-      <div v-if="asideData.blogView" class="blog-menu">
-        <BlogMenu></BlogMenu>
-      </div>
-    </Transition>
+    <div class="mt-2 mb-2" style="height: 50vh">
+      <Transition>
+        <div v-if="asideData.basicView" class="basic-menu h-full">
+          <BasicMenu></BasicMenu>
+        </div>
+      </Transition>
+      <Transition>
+        <div v-if="asideData.minView" class="min-menu h-full">
+          <MinMenu></MinMenu>
+        </div>
+      </Transition>
+      <Transition>
+        <div v-if="asideData.blogView" class="blog-menu h-full">
+          <BlogMenu></BlogMenu>
+        </div>
+      </Transition>
+    </div>
   </div>
 </template>
 <script lang="ts" setup>

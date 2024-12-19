@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-stretch mt-3 mb-3">
+  <div class="flex items-stretch bg-purple-100 rounded-box h-full">
     <div class="inline-block rounded-box bg-purple-200">
       <ul class="menu">
         <li @click="dynamicData('basicView', true)">
@@ -157,7 +157,7 @@
         </li>
       </ul>
     </div>
-    <div class="flex-1" style="border: 1px solid orange">
+    <div class="flex-1 overflow-y-scroll">
       <ul class="menu menu-xs rounded-lg w-full p-0">
         <li
           class="w-full"
