@@ -206,7 +206,10 @@ const asideStore = PiniaAsideData();
 const blogStore = PiniaBlogData();
 const blogMenuData = computed(() => blogStore.mdMenu);
 // 修改侧边栏呈现值
-function dynamicData(name: string, data: Boolean) {
+function dynamicData(
+  name: "basicView" | "minView" | "blogView",
+  data: boolean
+) {
   asideStore.modifyViewData("blogView", false);
   asideStore.modifyViewData(name, data);
 }

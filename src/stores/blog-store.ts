@@ -1,9 +1,13 @@
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import { defineStore } from "pinia";
 import { marked } from "marked";
 
 export const PiniaBlogData = defineStore("blogData", () => {
-  const mdData = ref({
+  const mdData = ref<{
+    title: string;
+    imgURL: string;
+    content: string;
+  }>({
     title: "",
     imgURL: "",
     content: "",
@@ -188,8 +192,10 @@ export const PiniaBlogData = defineStore("blogData", () => {
    * @modules 传入的模块对象
    * @returns {object} 匹配的文件路径的对象
    */
-  async function mdFileToMd(modules) {
-    const outputObj = {};
+  type modules = Record<string, () => Promise<string>>;
+  type strstrObj = Record<string, string>;
+  async function mdFileToMd(modules: modules) {
+    const outputObj: Record<string, string> = {};
     for (const key in modules) {
       if (modules.hasOwnProperty(key)) {
         // 解构模块对象
@@ -209,7 +215,7 @@ export const PiniaBlogData = defineStore("blogData", () => {
    * @func mdToHtml
    * @returns {HTML} 转换成的html
    */
-  async function mdToHtml(mdData) {
+  async function mdToHtml(mdData: string) {
     const htmlContent = await marked(mdData);
     return htmlContent;
   }
@@ -229,7 +235,7 @@ export const PiniaBlogData = defineStore("blogData", () => {
     const modules = importMdFile();
     const outputObj = await mdFileToMd(modules);
     console.log("Pinia : blog : outputObj : ", outputObj);
-    const outputHtml = {};
+    const outputHtml: strstrObj = {};
     for (const key in outputObj) {
       if (outputObj.hasOwnProperty(key)) {
         const contentHtml = await mdToHtml(outputObj[key]);
