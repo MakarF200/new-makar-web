@@ -160,7 +160,10 @@ const asideStore = PiniaAsideData();
 const asideData = computed(() => asideStore.dynamicViewData);
 const { modifyViewData } = asideStore;
 
-function dynamicData(name: string, data: Boolean) {
+function dynamicData(
+  name: "basicView" | "minView" | "blogView",
+  data: boolean
+) {
   modifyViewData("basicView", false);
   modifyViewData(name, data);
 }
