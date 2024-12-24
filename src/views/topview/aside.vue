@@ -10,7 +10,6 @@
           <img src="/public/makarpic.png" />
         </div>
       </div>
-      <p>Makar</p>
       <!-- </RouterLink> -->
     </div>
     <div class="mt-2 mb-2" style="height: 50vh">
