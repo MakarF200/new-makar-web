@@ -5,28 +5,22 @@ import ContentVue from "@/views/topview/contentview.vue";
 </script>
 
 <template>
-  <div class="div-top w-screen">
-    <div class="asidevue mr-2 bg-purple-50 rounded-box">
+  <div class="div-top w-screen h-screen flex overflow-hidden p-2 ">
+    <!-- 目录侧边栏 -->
+    <div class="asidevue bg-purple-50 rounded-box box-content w-1/5 min-w-[200px]">
       <AsideVue></AsideVue>
     </div>
-    <div class="contentvue bg-purple-50 rounded-box flex-1">
+    <!-- 内容栏 -->
+    <div class="contentvue bg-purple-50 rounded-box flex-1 ml-2 overflow-auto">
       <ContentVue></ContentVue>
     </div>
   </div>
 </template>
 
-<style scoped>
-
-.div-top {
-  display: flex;
-  padding: 10px;
-}
-
-</style>
 <style>
 #app {
-   padding: 0;
-   display: flex;
-   max-width: 100%;
+  padding: 0;
+  display: flex;
+  max-width: 100%;
 }
 </style>

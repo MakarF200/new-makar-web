@@ -1,18 +1,15 @@
 <template>
-  <div style="width: 17rem">
-    <div
-      class="menu bg-purple-100 rounded-box w-full p-4 place-content-evenly"
-      style="height: 25vh"
-    >
+  <div>
+    <div class="menu bg-purple-100 rounded-box w-full place-content-evenly">
       <!-- <RouterLink to="/" class="p-0"> -->
       <div class="avatar">
-        <div class="w-20 rounded-full">
+        <div class="size-20 rounded-full">
           <img src="/public/makarpic.png" />
         </div>
       </div>
       <!-- </RouterLink> -->
     </div>
-    <div class="mt-2 mb-2" style="height: 50vh">
+    <div class="mt-2 mb-2 h-1/2">
       <Transition>
         <div v-if="asideData.basicView" class="basic-menu h-full">
           <BasicMenu></BasicMenu>
@@ -48,6 +45,6 @@ import MinMenu from "@/views/contentview/aside-views/min-menu.vue";
   display: flex !important;
   flex-direction: row;
 }
-@media screen {
-}
+
+@media screen {}
 </style>
