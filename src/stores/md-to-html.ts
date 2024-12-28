@@ -2,6 +2,16 @@ import { ref } from "vue";
 import { defineStore } from "pinia";
 
 export interface vueComponentStruct {
+  viewComponent?: {
+    leftComponent: {
+      leftData: string;
+      rightData: string;
+    };
+    rightComponent: {
+      leftData: string;
+      rightData: string;
+    };
+  };
   headButtonData: Array<{
     isVueComponent: string;
     contentData: {
@@ -13,6 +23,16 @@ export interface vueComponentStruct {
 
 export const PiniaMdToHtmlData = defineStore("mdToHtmlData", () => {
   const vueComponentData = ref<vueComponentStruct>({
+    viewComponent: {
+      leftComponent: {
+        leftData: "import",
+        rightData: "translation",
+      },
+      rightComponent: {
+        leftData: "optionCSS",
+        rightData: "preview",
+      },
+    },
     headButtonData: [
       {
         isVueComponent: "mdCode",

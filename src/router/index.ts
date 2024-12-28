@@ -36,6 +36,14 @@ const router = createRouter({
       component: () =>
         import("@/views/contentview/project-content/mes-kutangguo.vue"),
     },
+
+    {
+      path: "/fourwheeled",
+      name: "fourwheeled",
+      component: () =>
+        import("@/views/contentview/project-content/Four-wheeled.vue"),
+    },
+    // 测试用路由
     {
       path: "/test",
       name: "test",
@@ -43,10 +51,10 @@ const router = createRouter({
         import("@/views/contentview/project-content/md-to-html.vue"),
     },
     {
-      path: "/fourwheeled",
-      name: "fourwheeled",
+      path: "/testone",
+      name: "testone",
       component: () =>
-        import("@/views/contentview/project-content/Four-wheeled.vue"),
+        import("@/views/contentview/project-content/html-display-view.vue"),
     },
   ],
 });

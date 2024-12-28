@@ -1,5 +1,5 @@
 <template>
-   <div class="view-div">
+   <div class="view-div flex">
       <RouterView></RouterView>
    </div>
 </template>
