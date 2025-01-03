@@ -1,7 +1,7 @@
 <template>
   <div v-html="viewData" class="markdown-body md-style"></div>
 </template>
-
+// TODO: 妈的 重构这个组件，你奶奶的三个func能难到哪去
 <script lang="ts" setup>
 import "github-markdown-css";
 import { ref, onMounted } from "vue";
