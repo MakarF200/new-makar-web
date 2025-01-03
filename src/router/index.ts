@@ -34,7 +34,7 @@ const router = createRouter({
       path: "/ant",
       name: "ant",
       component: () =>
-        import("@/views/contentview/project-content/mes-kutangguo.vue"),
+        import("@/views/contentview/ant-travel/about-ant-travel.vue"),
     },
 
     {

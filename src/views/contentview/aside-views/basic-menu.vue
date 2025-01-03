@@ -39,7 +39,7 @@
     </li>
     <li class="p-1">
       <RouterLink to="ant">
-        🐜的旅途
+        🐜的哲学
       </RouterLink>
     </li>
   </ul>

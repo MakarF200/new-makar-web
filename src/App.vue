@@ -23,4 +23,7 @@ import ContentVue from "@/views/topview/contentview.vue";
   display: flex;
   max-width: 100%;
 }
+ol {
+  list-style:decimal
+}
 </style>
