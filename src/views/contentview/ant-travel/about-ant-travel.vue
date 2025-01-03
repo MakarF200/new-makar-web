@@ -35,9 +35,11 @@ async function fetchMdContent(mdPath: string): Promise<string> {
  * @returns {string} 转换后的 HTML
  */
 function getMd(mdData: string): string {
+  // @ts-ignore
   return marked(mdData);  // 使用 marked 将 Markdown 转换为 HTML
 }
 </script>
+
 
 
 
