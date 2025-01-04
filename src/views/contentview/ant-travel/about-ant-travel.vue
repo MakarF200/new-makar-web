@@ -1,48 +1,35 @@
 <template>
   <div v-html="viewData" class="markdown-body md-style"></div>
 </template>
-// TODO: 妈的 重构这个组件，你奶奶的三个func能难到哪去
 <script lang="ts" setup>
 import "github-markdown-css";
 import { ref, onMounted } from "vue";
 import { marked } from "marked";
 
-const viewData = ref<string>("");  // 用 ref 存储转换后的 HTML
-
+const viewData = ref<string | undefined>("");
 // 组件挂载后加载 Markdown 内容
 onMounted(async () => {
-  const mdContent = await fetchMdContent("/public/markdown/ant-travel/about.md");
-  viewData.value = getMd(mdContent);  // 获取转换后的 HTML
+  viewData.value = await getMdContent("/public/markdown/ant-travel/about.md")
 });
-
 /**
- * 异步获取 Markdown 文件内容
- * @param mdPath Markdown 文件路径
- * @returns {Promise<string>} Markdown 内容
+ * @function getMdContent 获取md文件内容，并将其转换成html
+ * @param url 传入的md文件地址
  */
-async function fetchMdContent(mdPath: string): Promise<string> {
-  const response = await fetch(mdPath);  // 使用 fetch 获取文件内容
-  if (!response.ok) {
-    throw new Error("Failed to fetch the markdown file.");
+async function getMdContent(url: string): Promise<string | undefined> {
+  try {
+    const response = await fetch(url); // 获取 Response 对象
+    if (!response.ok) {
+      throw new Error(`Failed to fetch the Markdown file. Status: ${response.status}`);
+    }
+    const markdownText = await response.text(); // 调用 text() 获取 Promise<string> 的解析结果
+    console.log("VUE : FUNC : markdownText is : ", markdownText);
+    const htmlContent = marked(markdownText); // 将 Markdown 转换为 HTML
+    return htmlContent;
+  } catch (error) {
+    console.error("VUE : FUNC : getMdContent encountered an error: ", error);
   }
-  return await response.text();  // 返回文件内容
-}
-
-/**
- * 用 marked 转换成 HTML
- * @func getMd
- * @param {string} mdData Markdown 数据
- * @returns {string} 转换后的 HTML
- */
-function getMd(mdData: string): string {
-  // @ts-ignore
-  return marked(mdData);  // 使用 marked 将 Markdown 转换为 HTML
 }
 </script>
-
-
-
-
 <style scoped>
 /* ::v-deep .md-style {
   @import "@/assets/css-file/bluetex.css";
