@@ -85,4 +85,4 @@ OK，现在让我们来看看变化吧，如果你会使用手机和电脑软件
 
 最后的最后，感谢您能看完这篇故事，笔者在这里祝各位身体健康、万事如意，以及附上最后一张图
 
-![is life](/public/png/ant-travel/DE95C15E-DFF7-4E54-98D7-EAC6B5E34F49_1_105_c.jpeg)
+![is life](/png/ant-travel/DE95C15E-DFF7-4E54-98D7-EAC6B5E34F49_1_105_c.jpeg)
