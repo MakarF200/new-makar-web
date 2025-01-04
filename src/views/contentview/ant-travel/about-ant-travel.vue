@@ -6,7 +6,7 @@ import "github-markdown-css";
 import { ref, onMounted } from "vue";
 import { marked } from "marked";
 
-const viewData = ref<string | undefined>("");
+const viewData = ref<string>("");
 // 组件挂载后加载 Markdown 内容
 onMounted(async () => {
   viewData.value = await getMdContent("/public/markdown/ant-travel/about.md")
@@ -14,20 +14,17 @@ onMounted(async () => {
 /**
  * @function getMdContent 获取md文件内容，并将其转换成html
  * @param url 传入的md文件地址
+ * @return 返回html
  */
-async function getMdContent(url: string): Promise<string | undefined> {
-  try {
-    const response = await fetch(url); // 获取 Response 对象
-    if (!response.ok) {
-      throw new Error(`Failed to fetch the Markdown file. Status: ${response.status}`);
-    }
-    const markdownText = await response.text(); // 调用 text() 获取 Promise<string> 的解析结果
-    console.log("VUE : FUNC : markdownText is : ", markdownText);
-    const htmlContent = marked(markdownText); // 将 Markdown 转换为 HTML
-    return htmlContent;
-  } catch (error) {
-    console.error("VUE : FUNC : getMdContent encountered an error: ", error);
+async function getMdContent(url: string): Promise<string> {
+  const response = await fetch(url); // 获取 Response 对象
+  if (!response.ok) {
+    throw new Error(`Failed to fetch the Markdown file. Status: ${response.status}`);
   }
+  const markdownText = await response.text(); // 调用 text() 获取 Promise<string> 的解析结果
+  console.log("VUE : FUNC : markdownText is : ", markdownText);
+  const htmlContent = marked(markdownText); // 将 Markdown 转换为 HTML
+  return htmlContent;
 }
 </script>
 <style scoped>
