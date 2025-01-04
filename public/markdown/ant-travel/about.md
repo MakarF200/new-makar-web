@@ -8,7 +8,7 @@
 
 上图！！！
 
-![is light cone](/public/png/ant-travel/截屏2025-01-02%2015.29.31.png)
+![is light cone](/png/ant-travel/light-url.png)
 
 我们无法超过光速（现阶段，鬼知道以后会发生什么呢），光锥以内皆是命运，这句话很像神棍的说法，其实它只是说的很模糊罢了
 
