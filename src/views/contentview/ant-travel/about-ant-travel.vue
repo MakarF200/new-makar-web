@@ -9,7 +9,7 @@ import { marked } from "marked";
 const viewData = ref<string>("");
 // 组件挂载后加载 Markdown 内容
 onMounted(async () => {
-  viewData.value = await getMdContent("/public/markdown/ant-travel/about.md")
+  viewData.value = await getMdContent("/markdown/ant-travel/about.md")
 });
 /**
  * @function getMdContent 获取md文件内容，并将其转换成html
