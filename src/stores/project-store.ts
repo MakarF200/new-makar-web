@@ -100,37 +100,9 @@ export interface ProjectObj {
 }
 export const StoreProjectData = defineStore("projectData", () => {
   const count = ref(0);
-  const data = ref([
+  const projectMainData = ref<ProjectObj[]>([
     {
-      name: "Desk and Office",
-      description: "Work from home accessories",
-      imageSrc:
-        "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-edition-01.jpg",
-      imageAlt:
-        "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
-      href: "#",
-    },
-    {
-      name: "Self-Improvement",
-      description: "Journals and note-taking",
-      imageSrc:
-        "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-edition-02.jpg",
-      imageAlt:
-        "Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.",
-      href: "#",
-    },
-    {
-      name: "Travel",
-      description: "Daily commute essentials",
-      imageSrc:
-        "https://tailwindui.com/plus/img/ecommerce-images/home-page-02-edition-03.jpg",
-      imageAlt: "Collection of four insulated travel bottles on wooden shelf.",
-      href: "#",
-    },
-  ]);
-  const mainData = ref<ProjectObj[]>([
-    {
-      id: "1",
+      id: "01",
       key: "Four-wheeled",
       name: "Four-wheeled",
       showImageUrl:
@@ -193,7 +165,7 @@ export const StoreProjectData = defineStore("projectData", () => {
     },
     {
       id: "02",
-      key: "MES system in company",
+      key: "MES-system-in-company",
       name: "MES system in company",
       titleImg: {
         imgUrl:
@@ -245,5 +217,5 @@ export const StoreProjectData = defineStore("projectData", () => {
     },
   ]);
 
-  return { mainData, count, data };
+  return { projectMainData, count };
 });

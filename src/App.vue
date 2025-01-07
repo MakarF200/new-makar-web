@@ -7,7 +7,7 @@ import ContentVue from "@/views/topview/contentview.vue";
 <template>
   <div class="div-top w-screen h-screen flex overflow-hidden p-2 ">
     <!-- 目录侧边栏 -->
-    <div class="asidevue bg-purple-50 rounded-box box-content w-1/5 min-w-[200px]">
+    <div class="asidevue bg-purple-50 rounded-box box-content w-1/8 min-w-[200px]">
       <AsideVue></AsideVue>
     </div>
     <!-- 内容栏 -->

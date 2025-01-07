@@ -14,11 +14,7 @@ const router = createRouter({
       name: "home",
       component: () => import("@/views/contentview/home.vue"),
     },
-    {
-      path: "/project",
-      name: "project",
-      component: () => import("@/views/contentview/project.vue"),
-    },
+    // blog相关路由
     {
       path: "/blog",
       name: "blog",
@@ -30,16 +26,28 @@ const router = createRouter({
       component: () =>
         import("@/views/contentview/blog-content/blog-content.vue"),
     },
+    // 蚂蚁相关路由
     {
       path: "/ant",
       name: "ant",
       component: () =>
         import("@/views/contentview/ant-travel/about-ant-travel.vue"),
     },
-
+    // project相关路由
     {
-      path: "/fourwheeled",
-      name: "fourwheeled",
+      path: "/project",
+      name: "project",
+      component: () => import("@/views/contentview/project.vue"),
+    },
+    {
+      path: "/Four-wheeled",
+      name: "Four-wheeled",
+      component: () =>
+        import("@/views/contentview/project-content/Four-wheeled.vue"),
+    },
+    {
+      path: "/MES-system-in-company",
+      name: "MES-system-in-company",
       component: () =>
         import("@/views/contentview/project-content/Four-wheeled.vue"),
     },

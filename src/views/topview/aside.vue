@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <div class="menu bg-purple-100 rounded-box w-full place-content-evenly">
+  <!-- makar头像 -->
+  <div class=" flex flex-col">
+    <div class="menu bg-purple-100 rounded-box w-full place-content-evenly flex-auto h-15vh">
       <!-- <RouterLink to="/" class="p-0"> -->
       <div class="avatar">
         <div class="size-20 rounded-full">
@@ -9,7 +10,8 @@
       </div>
       <!-- </RouterLink> -->
     </div>
-    <div class="mt-2 mb-2 h-1/2">
+    <!-- 目录 -->
+    <div class="mt-2 mb-2 h-60vh flex-auto">
       <Transition>
         <div v-if="asideData.basicView" class="basic-menu h-full">
           <BasicMenu></BasicMenu>
@@ -26,6 +28,8 @@
         </div>
       </Transition>
     </div>
+    <!-- aside剩余内容：调色？等 -->
+    <div class=" flex-1"></div>
   </div>
 </template>
 <script lang="ts" setup>

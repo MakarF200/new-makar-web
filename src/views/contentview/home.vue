@@ -99,13 +99,13 @@
           <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32"
             style="padding-top: 0; padding-bottom: 2rem">
             <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
-              <div v-for="mainDataObj in ProjectMainData" :key="mainDataObj.id"
+              <div v-for="projectMainDataObj in ProjectMainData" :key="projectMainDataObj.id"
                 class="group relative bg-purple-200 rounded-xl flex">
-                <RouterLink :to="mainDataObj.key">
-                  <img :src="mainDataObj.showImageUrl" alt=""
+                <RouterLink :to="projectMainDataObj.key">
+                  <img :src="projectMainDataObj.showImageUrl" alt=""
                     class="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-[2/1] lg:aspect-square" />
                   <p class="mt-4 mb-4 text-sm text-gray-500 text-center">
-                    {{ mainDataObj.name }}
+                    {{ projectMainDataObj.name }}
                   </p>
                 </RouterLink>
               </div>
@@ -153,11 +153,11 @@
 import { StoreProjectData } from "@/stores/project-store";
 import { StoreSkillData } from "@/stores/skill-store";
 import { computed } from "vue";
-import { RouterLink, RouterView } from "vue-router";
+import { RouterLink } from "vue-router";
 
 // 解构store
 const ProjectStore = StoreProjectData();
-const ProjectMainData = computed(() => ProjectStore.mainData);
+const ProjectMainData = computed(() => ProjectStore.projectMainData);
 const SkillStore = StoreSkillData();
 const SkillData = computed(() => SkillStore.data);
 // project 展示数据
