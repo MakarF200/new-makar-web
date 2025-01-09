@@ -15,12 +15,11 @@ export const StoreProjectData = defineStore("projectData", () => {
       showImageUrl:
         "https://res.cloudinary.com/dzhf0gkvi/image/upload/v1735012094/Four-wheeled-survey-trolley_czgfeu.png",
       showLocImgUrl:
-        "/public/png/project/four-wheeled/Four-wheeled-survey-trolley.png",
+        "/png/project/four-wheeled/Four-wheeled-survey-trolley.png",
       titleImg: {
         imgUrl:
           "https://res.cloudinary.com/dzhf0gkvi/image/upload/v1735012094/Four-wheeled-survey-trolley_czgfeu.png",
-        locImgUrl:
-          "/public/png/project/four-wheeled/Four-wheeled-survey-trolley.png",
+        locImgUrl: "/png/project/four-wheeled/Four-wheeled-survey-trolley.png",
         id: "titleImg",
         key: "TransmissionStructure",
       },
@@ -42,29 +41,28 @@ export const StoreProjectData = defineStore("projectData", () => {
         {
           imgUrl:
             "https://res.cloudinary.com/dzhf0gkvi/image/upload/v1735018337/TransmissionStructure_txl73u.png",
-          locImgUrl:
-            "/public/png/project/four-wheeled/TransmissionStructure.png",
+          locImgUrl: "/png/project/four-wheeled/TransmissionStructure.png",
           id: "1-1",
           key: "TransmissionStructure",
         },
         {
           imgUrl:
             "https://res.cloudinary.com/dzhf0gkvi/image/upload/v1735018336/Steering_dfvfyi.png",
-          locImgUrl: "/public/png/project/four-wheeled/Steering.png",
+          locImgUrl: "/png/project/four-wheeled/Steering.png",
           id: "1-2",
           key: "Steering",
         },
         {
           imgUrl:
             "https://res.cloudinary.com/dzhf0gkvi/image/upload/v1735018336/SteeringStructure_yavjgg.png",
-          locImgUrl: "/public/png/project/four-wheeled/SteeringStructure.png",
+          locImgUrl: "/png/project/four-wheeled/SteeringStructure.png",
           id: "1-3",
           key: "SteeringStructure",
         },
         {
           imgUrl:
             "https://res.cloudinary.com/dzhf0gkvi/image/upload/v1735018336/cutaway_ammu1p.png",
-          locImgUrl: "/public/png/project/four-wheeled/cutaway.png",
+          locImgUrl: "/png/project/four-wheeled/cutaway.png",
           id: "1-4",
           key: "cutaway",
         },
@@ -78,13 +76,13 @@ export const StoreProjectData = defineStore("projectData", () => {
       titleImg: {
         imgUrl:
           "https://res.cloudinary.com/dzhf0gkvi/image/upload/v1735024390/MES-KuTangGuo_purh3n.png",
-        locImgUrl: "/public/png/project/mes-system/MES-KuTangGuo.png",
+        locImgUrl: "/png/project/mes-system/MES-KuTangGuo.png",
         id: "titleImg",
         key: "TransmissionStructure",
       },
       showImageUrl:
         "https://res.cloudinary.com/dzhf0gkvi/image/upload/v1735024391/mes-system_t5vpka.png",
-      showLocImgUrl: "/public/png/project/mes-system/mes-system.png",
+      showLocImgUrl: "/png/project/mes-system/mes-system.png",
       time: "2024-07-08",
       description:
         "This is a comprehensive internal management solution designed specifically for small and medium-sized enterprises in the discrete manufacturing industry in China. It aims to optimize production processes, improve resource allocation, and enhance production and operational efficiency through digitalization.",
@@ -103,21 +101,21 @@ export const StoreProjectData = defineStore("projectData", () => {
         {
           imgUrl:
             "https://res.cloudinary.com/dzhf0gkvi/image/upload/v1735024391/mes-system-one_f4cier.png",
-          locImgUrl: "/public/png/project/mes-system/mes-system-one.png",
+          locImgUrl: "/png/project/mes-system/mes-system-one.png",
           id: "2-1",
           key: "mes-system-one",
         },
         {
           imgUrl:
             "https://res.cloudinary.com/dzhf0gkvi/image/upload/v1735024392/mes-system-three_yw0f4p.png",
-          locImgUrl: "/public/png/project/mes-system/mes-system-three.png",
+          locImgUrl: "/png/project/mes-system/mes-system-three.png",
           id: "2-2",
           key: "mes-system-three",
         },
         {
           imgUrl:
             "https://res.cloudinary.com/dzhf0gkvi/image/upload/v1735024393/mes-system-two_koa5wf.png",
-          locImgUrl: "/public/png/project/mes-system/mes-system-two.png",
+          locImgUrl: "/png/project/mes-system/mes-system-two.png",
           id: "2-3",
           key: "mes-system-two",
         },
