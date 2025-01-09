@@ -49,7 +49,7 @@ const router = createRouter({
       path: "/MES-system-in-company",
       name: "MES-system-in-company",
       component: () =>
-        import("@/views/contentview/project-content/Four-wheeled.vue"),
+        import("@/views/contentview/project-content/mes-kutangguo.vue"),
     },
     // 测试用路由
     {

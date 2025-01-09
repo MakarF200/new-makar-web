@@ -11,14 +11,17 @@
       </div>
       <div>
         <div v-for="mainDataObj in ProjectMainData" :key="mainDataObj.id" class="">
-          <div class="bg-purple-200 rounded-box flex m-4">
-            <div class="place-content-center">
-              <img :src="mainDataObj.titleImg.imgUrl" alt="" class="m-2 size-20 rounded-box object-center max-w-none" />
+          <RouterLink :to="mainDataObj.key">
+            <div class="bg-purple-200 rounded-box flex">
+              <div class="place-content-center">
+                <img :src="mainDataObj.titleImg.imgUrl" alt=""
+                  class="m-2 size-20 rounded-box object-center max-w-none" />
+              </div>
+              <div class="">
+                {{ mainDataObj.description }}
+              </div>
             </div>
-            <div class="">
-              {{ mainDataObj.description }}
-            </div>
-          </div>
+          </RouterLink>
         </div>
       </div>
     </div>
@@ -28,6 +31,7 @@
 import { computed } from "vue";
 // 导入store/pinia数据
 import { StoreProjectData } from "@/stores/project-store";
+import { RouterLink } from "vue-router";
 // 解构store
 const ProjectStore = StoreProjectData();
 const ProjectMainData = computed(() => ProjectStore.projectMainData);

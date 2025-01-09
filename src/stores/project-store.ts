@@ -11,7 +11,7 @@ export const StoreProjectData = defineStore("projectData", () => {
     {
       id: "01",
       key: "Four-wheeled",
-      name: "Four-wheeled",
+      name: "Four-wheeled survey trolley walking mechanism design",
       showImageUrl:
         "https://res.cloudinary.com/dzhf0gkvi/image/upload/v1735012094/Four-wheeled-survey-trolley_czgfeu.png",
       showLocImgUrl:

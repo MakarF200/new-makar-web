@@ -29,8 +29,10 @@
         图片
       </div>
       <div class="w-80% h-auto place-content-center">
-        <div class="mx-auto max-w-7xl px-12 py-16 sm:px-6 sm:py-24 lg:px-8">
+        <div class="mx-auto max-w-7xl  py-16  sm:py-24">
+          <div class="w-1/8"></div>
           <!-- 图片 -->
+          <div></div>
           <div class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8">
             <div class="group relative aspect-[2/1] overflow-hidden rounded-lg sm:row-span-2 sm:aspect-square">
               <img :src="showThisProjectImg.leftShow.locImgUrl" :alt="showThisProjectImg.leftShow.key"
@@ -46,13 +48,13 @@
                 class="absolute size-full object-cover group-hover:opacity-75" />
             </div>
           </div>
-
-          <div class="mt-6 sm:hidden">
+          <div class="w-1/8"></div>
+          <!-- <div class="mt-6 sm:hidden">
             <a href="#" class="block text-sm font-semibold text-indigo-600 hover:text-indigo-500">
               Browse all categories
               <span aria-hidden="true"> &rarr;</span>
             </a>
-          </div>
+          </div> -->
         </div>
       </div>
 
