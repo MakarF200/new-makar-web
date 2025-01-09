@@ -50,7 +50,7 @@ import { RouterLink, RouterView } from "vue-router";
 import { PiniaAsideData } from "@/stores/aside-store";
 
 const asideStore = PiniaAsideData();
-const asideData = computed(() => asideStore.dynamicViewData);
+const asideStoreData = computed(() => asideStore.dynamicViewData);
 const { modifyViewData } = asideStore;
 
 function dynamicData(

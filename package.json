@@ -10,6 +10,7 @@
     "test:unit": "vitest",
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
+    "clean-all-modules": "rm -rf node_modules",
     "tailwindcss-watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
   },
   "dependencies": {
