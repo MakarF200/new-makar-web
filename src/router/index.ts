@@ -56,13 +56,15 @@ const router = createRouter({
       path: "/test",
       name: "test",
       component: () =>
-        import("@/views/contentview/project-content/md-to-html.vue"),
+        import("@/views/contentview/project-content/md-to-html/md-to-html.vue"),
     },
     {
       path: "/testone",
       name: "testone",
       component: () =>
-        import("@/views/contentview/project-content/html-display-view.vue"),
+        import(
+          "@/views/contentview/project-content/md-to-html/html-display-view.vue"
+        ),
     },
   ],
 });

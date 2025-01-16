@@ -23,6 +23,7 @@ export interface vueComponentStruct {
 
 export const PiniaMdToHtmlData = defineStore("mdToHtmlData", () => {
   const vueComponentData = ref<vueComponentStruct>({
+    // 在md to html页面中展示的头部按钮数据
     viewComponent: {
       leftComponent: {
         leftData: "import",
@@ -33,6 +34,7 @@ export const PiniaMdToHtmlData = defineStore("mdToHtmlData", () => {
         rightData: "preview",
       },
     },
+    // 存储md to html页面中top按钮的数据
     headButtonData: [
       {
         isVueComponent: "mdCode",
