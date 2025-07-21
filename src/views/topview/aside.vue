@@ -1,11 +1,17 @@
 <template>
   <!-- makar头像 -->
-  <div class=" flex flex-col">
-    <div class="menu bg-purple-100 rounded-box w-full place-content-evenly flex-auto h-15vh">
+  <div class="flex flex-col">
+    <div
+      class="menu bg-purple-100 rounded-box w-full place-content-evenly flex-auto h-15vh"
+    >
       <!-- <RouterLink to="/" class="p-0"> -->
-      <div class="avatar">
-        <div class="size-20 rounded-full">
-          <img src="/public/makarpic.png" />
+      <div class="flex justify-center items-center">
+        <div class="flex justify-center items-center">
+          <img
+            style="height: 75%; width: 75%"
+            class="rounded-full justify-center items-center"
+            src="/makarpic.png"
+          />
         </div>
       </div>
       <!-- </RouterLink> -->
@@ -29,7 +35,7 @@
       </Transition>
     </div>
     <!-- aside剩余内容：调色？等 -->
-    <div class=" flex-1"></div>
+    <div class="flex-1"></div>
   </div>
 </template>
 <script lang="ts" setup>
@@ -50,5 +56,6 @@ import MinMenu from "@/views/contentview/aside-views/min-menu.vue";
   flex-direction: row;
 }
 
-@media screen {}
+@media screen {
+}
 </style>

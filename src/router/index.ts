@@ -1,4 +1,3 @@
-import App from "@/App.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
@@ -50,6 +49,17 @@ const router = createRouter({
       name: "MES-system-in-company",
       component: () =>
         import("@/views/contentview/project-content/mes-kutangguo.vue"),
+    },
+    // freelance相关路由
+    {
+      path: "/freelance",
+      name: "freelance",
+      component: () => import("@/views/contentview/freelance/freelance.vue"),
+    },
+    {
+      path: "/freelance/web-design",
+      name: "freelance-web-design",
+      component: () => import("@/views/contentview/freelance/web-design.vue"),
     },
     // 测试用路由
     {
