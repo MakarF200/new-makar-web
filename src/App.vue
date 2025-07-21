@@ -46,7 +46,7 @@ ol {
 }
 .side-enter-active,
 .side-leave-active {
-  transition: all 0.5s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 .content-enter-active,
 .content-leave-active {

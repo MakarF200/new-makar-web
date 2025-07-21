@@ -76,6 +76,11 @@ const router = createRouter({
           "@/views/contentview/project-content/md-to-html/html-display-view.vue"
         ),
     },
+    {
+      path: "/testtwo",
+      name: "testtwo",
+      component: () => import("@/views/contentview/freelance/text.vue"),
+    },
   ],
 });
 

@@ -1,7 +1,7 @@
 <template>
   <ul class="menu bg-purple-200 rounded-box h-full">
     <li class="p-1">
-      <RouterLink to="home">
+      <RouterLink to="/home">
         <svg
           width="20"
           height="20"
@@ -35,7 +35,7 @@
       </RouterLink>
     </li>
     <li class="p-1">
-      <RouterLink to="project">
+      <RouterLink to="/project">
         <svg
           width="20"
           height="20"
@@ -82,7 +82,7 @@
       </RouterLink>
     </li>
     <li class="p-1" @click="dynamicData('blogView', true)">
-      <RouterLink to="blog">
+      <RouterLink to="/blog">
         <svg
           width="20"
           height="20"
@@ -116,10 +116,10 @@
       </RouterLink>
     </li>
     <li>
-      <RouterLink to="freelance"> </RouterLink>
+      <RouterLink to="/freelance"> </RouterLink>
     </li>
     <li class="p-1">
-      <RouterLink to="ant"> 🐜的哲学 </RouterLink>
+      <RouterLink to="/ant"> 🐜的哲学 </RouterLink>
     </li>
   </ul>
 </template>
