@@ -115,3 +115,15 @@ export interface ProjectObj {
    */
   rotation: ProjectImg[];
 }
+// 报价表格格式
+
+export interface PriceTable {
+  name: string;
+  isHot: boolean;
+  toObject?: string;
+  introduction: string;
+  price: string;
+  featuresList: string[];
+  border?: boolean;
+  rightTab?: boolean;
+}

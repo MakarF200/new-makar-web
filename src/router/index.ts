@@ -61,6 +61,14 @@ const router = createRouter({
       name: "freelance-web-design",
       component: () => import("@/views/contentview/freelance/web-design.vue"),
     },
+    {
+      path: "/freelance/web-design-content/:type",
+      name: "freelance-web-design-content",
+      component: () =>
+        import(
+          "@/views/contentview/freelance/web-design-content/web-price-detail.vue"
+        ),
+    },
     // 测试用路由
     {
       path: "/test",

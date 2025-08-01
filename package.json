@@ -11,8 +11,7 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force",
     "clean-all-modules": "rm -rf node_modules",
-    "tailwindcss-watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch"
-  },
+    "tailwindcss-watch": "npx tailwindcss -i ./src/input.css -o ./src/output.css --watch" },
   "dependencies": {
     "@headlessui/vue": "^1.7.23",
     "@heroicons/vue": "^2.2.0",

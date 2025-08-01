@@ -11,13 +11,10 @@
   <div class="bg-white">
     <header>
       <nav
-        class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 mt-4 rounded-box"
         aria-label="Global"
       >
-        <a href="#" class="-m-1.5 p-1.5">
-          <span class="sr-only">Your Company</span>
-          <img class="h-8 w-auto" src="" alt="" />
-        </a>
+        <!-- 返回按钮 -->
         <div class="flex lg:hidden">
           <button
             type="button"
@@ -25,22 +22,44 @@
             @click="mobileMenuOpen = true"
           >
             <span class="sr-only">Open main menu</span>
-            <Bars3Icon class="size-6" aria-hidden="true" />
+            <Bars3Icon class="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
+        <!-- 汉堡按钮 -->
         <div class="hidden lg:flex lg:gap-x-12">
-          <a
-            v-for="item in navigation"
-            :key="item.name"
-            :href="item.href"
-            class="text-sm/6 font-semibold text-gray-900"
-            >{{ item.name }}</a
+          <button
+            type="button"
+            @click="router.back()"
+            class="rounded-md bg-purple-200 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
-          <a href="#" class="text-sm/6 font-semibold text-gray-900"
-            >Log in <span aria-hidden="true">&rarr;</span></a
+            返回
+          </button>
+        </div>
+        <!-- 语言选择按钮 -->
+        <div>
+          <label
+            for="language"
+            class="block text-sm font-medium text-gray-700 sr-only"
+            >语言选择</label
           >
+          <div class="relative">
+            <select
+              id="language"
+              name="language"
+              class="appearance-none rounded-md border border-purple-200 bg-purple-200 px-3 py-2 pr-8 text-sm text-gray-900 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            >
+              <option value="zh">中文</option>
+              <option value="en">English</option>
+              <option value="ja">日本語</option>
+            </select>
+            <ChevronDownIcon
+              class="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
+              aria-hidden="true"
+            />
+          </div>
         </div>
       </nav>
+      <!-- TODO：这里需要调整汉堡包的dialog显示的内容 -->
       <Dialog
         class="lg:hidden"
         @close="mobileMenuOpen = false"
@@ -67,13 +86,26 @@
           <div class="mt-6 flow-root">
             <div class="-my-6 divide-y divide-gray-500/10">
               <div class="space-y-2 py-6">
-                <a
-                  v-for="item in navigation"
-                  :key="item.name"
-                  :href="item.href"
-                  class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                  >{{ item.name }}</a
-                >
+                <template v-for="item in navigation" :key="item.name">
+                  <a
+                    v-if="!item.action"
+                    :href="item.href"
+                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                    @click="mobileMenuOpen = false"
+                    >{{ item.name }}</a
+                  >
+                  <button
+                    v-else-if="item.action === 'back'"
+                    type="button"
+                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 w-full text-left"
+                    @click="
+                      router.back();
+                      mobileMenuOpen = false;
+                    "
+                  >
+                    {{ item.name }}
+                  </button>
+                </template>
               </div>
               <div class="py-6">
                 <a
@@ -89,124 +121,77 @@
     </header>
 
     <main>
-      <!-- Pricing section -->
+      <!-- 价格选择 -->
       <form class="group/tiers bg-white pt-24 sm:pt-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
+          <!-- 介绍 -->
           <div class="mx-auto max-w-4xl text-center">
-            <h1 class="text-base/7 font-semibold text-indigo-600">Pricing</h1>
             <p
-              class="mt-2 text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl"
+              class="leading-relaxed article-Douyin-Sans-5rem mt-2 text-balance text-5xl font-semibold tracking-tight !text-gray-600"
             >
-              Pricing that grows with you
+              设计您的网页
             </p>
           </div>
           <p
-            class="mx-auto mt-6 max-w-2xl text-pretty text-center text-lg font-medium text-gray-600 sm:text-xl/8"
+            class="mx-auto mt-6 max-w-2xl text-pretty text-center text-lg text-gray-600 sm:text-xl/8"
           >
-            Choose an affordable plan that’s packed with the best features for
-            engaging your audience, creating customer loyalty, and driving
-            sales.
+            在这里您可以根据您的需求来选择适合您的套餐<br />
+            😇当然，您也可以只挑选您喜欢的菜单，本店加量不加价😈
           </p>
-          <div class="mt-16 flex justify-center">
-            <fieldset aria-label="Payment frequency">
-              <div
-                class="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs/5 font-semibold ring-1 ring-inset ring-gray-200"
-              >
-                <label
-                  class="group relative rounded-full px-2.5 py-1 has-[:checked]:bg-indigo-600"
-                >
-                  <input
-                    type="radio"
-                    name="frequency"
-                    value="monthly"
-                    checked=""
-                    class="absolute inset-0 appearance-none rounded-full"
-                  />
-                  <span class="text-gray-500 group-has-[:checked]:text-white"
-                    >Monthly</span
-                  >
-                </label>
-                <label
-                  class="group relative rounded-full px-2.5 py-1 has-[:checked]:bg-indigo-600"
-                >
-                  <input
-                    type="radio"
-                    name="frequency"
-                    value="annually"
-                    class="absolute inset-0 appearance-none rounded-full"
-                  />
-                  <span class="text-gray-500 group-has-[:checked]:text-white"
-                    >Annually</span
-                  >
-                </label>
-              </div>
-            </fieldset>
-          </div>
-          <div
-            class="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-2 lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-4"
-          >
+          <!-- 分类 -->
+          <div class="mt-16 flex flex-wrap justify-center">
             <div
-              v-for="tier in pricing.tiers"
-              :key="tier.id"
-              class="group/tier rounded-3xl p-8 ring-1 ring-gray-200 data-[featured]:ring-2 data-[featured]:ring-indigo-600"
-              :data-featured="tier.featured ? 'true' : undefined"
+              v-for="item in priceList"
+              :key="item.name"
+              class="w-full sm:w-1/2 lg:w-1/3 p-4"
             >
-              <div class="flex items-center justify-between gap-x-4">
-                <h3
-                  :id="`tier-${tier.id}`"
-                  class="text-lg/8 font-semibold text-gray-900 group-data-[featured]/tier:text-indigo-600"
+              <div
+                class="rounded-lg p-4 h-full"
+                :class="
+                  item.isHot
+                    ? 'border-purple-300 border-2'
+                    : 'border-gray-300 border-2'
+                "
+              >
+                <h3 class="article-Douyin-Sans-2rem">{{ item.name }}</h3>
+                <!-- 价格框，并选择是不是hot选项 -->
+                <div
+                  class="py-2 flex flex-col sm:flex-row place-content-between"
                 >
-                  {{ tier.name }}
-                </h3>
-                <p
-                  class="rounded-full bg-indigo-600/10 px-2.5 py-1 text-xs/5 font-semibold text-indigo-600 group-[:not([data-featured])]/tier:hidden"
+                  <h4 class="article-ToneOZ-YinPZ-Tsuipita-TC-2rem">
+                    {{ item.price }}
+                  </h4>
+                  <h4
+                    v-if="item.isHot"
+                    class="article-Douyin-Sans-rem content-center text-red-500 font-bold bg-red-100 rounded-md px-2 py-1"
+                  >
+                    最受欢迎
+                  </h4>
+                </div>
+
+                <h4 class="article-Douyin-Sans-rem">{{ item.toObject }}</h4>
+                <p class="py-2">{{ item.introduction }}</p>
+                <button
+                  type="button"
+                  class="rounded-md w-full bg-purple-200 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  @click="webDesignPriceDetail(item.type)"
                 >
-                  Most popular
-                </p>
+                  立即购买
+                </button>
+                <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-600">
+                  <li
+                    v-for="feature in item.featuresList"
+                    :key="feature"
+                    class="flex gap-x-3"
+                  >
+                    <CheckIcon
+                      class="h-6 w-5 flex-none text-purple-600"
+                      aria-hidden="true"
+                    />
+                    {{ feature }}
+                  </li>
+                </ul>
               </div>
-              <p class="mt-4 text-sm/6 text-gray-600">{{ tier.description }}</p>
-              <p
-                class="mt-6 flex items-baseline gap-x-1 group-[:not(:has([name=frequency][value=monthly]:checked))]/tiers:hidden"
-              >
-                <span
-                  class="text-4xl font-semibold tracking-tight text-gray-900"
-                  >{{ tier.price.monthly }}</span
-                >
-                <span class="text-sm/6 font-semibold text-gray-600"
-                  >/month</span
-                >
-              </p>
-              <p
-                class="mt-6 flex items-baseline gap-x-1 group-[:not(:has([name=frequency][value=annually]:checked))]/tiers:hidden"
-              >
-                <span
-                  class="text-4xl font-semibold tracking-tight text-gray-900"
-                  >{{ tier.price.annually }}</span
-                >
-                <span class="text-sm/6 font-semibold text-gray-600">/year</span>
-              </p>
-              <button
-                type="submit"
-                name="tier"
-                :value="tier.id"
-                :aria-describedby="`tier-${tier.id}`"
-                class="mt-6 block w-full rounded-md px-3 py-2 text-center text-sm/6 font-semibold text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 group-data-[featured]/tier:bg-indigo-600 group-data-[featured]/tier:text-white group-data-[featured]/tier:shadow-sm group-data-[featured]/tier:ring-0 group-data-[featured]/tier:hover:bg-indigo-500"
-              >
-                Buy plan
-              </button>
-              <ul role="list" class="mt-8 space-y-3 text-sm/6 text-gray-600">
-                <li
-                  v-for="feature in tier.features"
-                  :key="feature"
-                  class="flex gap-x-3"
-                >
-                  <CheckIcon
-                    class="h-6 w-5 flex-none text-indigo-600"
-                    aria-hidden="true"
-                  />
-                  {{ feature }}
-                </li>
-              </ul>
             </div>
           </div>
         </div>
@@ -408,7 +393,9 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { ChevronDownIcon } from "@heroicons/vue/16/solid";
+import { CheckIcon } from "@heroicons/vue/24/outline";
 import { ref } from "vue";
 import {
   Dialog,
@@ -423,68 +410,72 @@ import {
   PlusSmallIcon,
   XMarkIcon,
 } from "@heroicons/vue/24/outline";
-import { CheckIcon } from "@heroicons/vue/20/solid";
 
-const navigation = [
-  { name: "Product", href: "#" },
-  { name: "Features", href: "#" },
-  { name: "Marketplace", href: "#" },
-  { name: "Company", href: "#" },
-];
-const pricing = {
-  tiers: [
-    {
-      name: "Hobby",
-      id: "hobby",
-      price: { monthly: "$19", annually: "$199" },
-      description: "The essentials to provide your best work for clients.",
-      features: ["5 products", "Up to 1,000 subscribers", "Basic analytics"],
-      featured: false,
-    },
-    {
-      name: "Freelancer",
-      id: "freelancer",
-      price: { monthly: "$29", annually: "$299" },
-      description: "The essentials to provide your best work for clients.",
-      features: [
-        "5 products",
-        "Up to 1,000 subscribers",
-        "Basic analytics",
-        "48-hour support response time",
-      ],
-      featured: false,
-    },
-    {
-      name: "Startup",
-      id: "startup",
-      price: { monthly: "$59", annually: "$599" },
-      description: "A plan that scales with your rapidly growing business.",
-      features: [
-        "25 products",
-        "Up to 10,000 subscribers",
-        "Advanced analytics",
-        "24-hour support response time",
-        "Marketing automations",
-      ],
-      featured: true,
-    },
-    {
-      name: "Enterprise",
-      id: "enterprise",
-      price: { monthly: "$99", annually: "$999" },
-      description: "Dedicated support and infrastructure for your company.",
-      features: [
-        "Unlimited products",
-        "Unlimited subscribers",
-        "Advanced analytics",
-        "1-hour, dedicated support response time",
-        "Marketing automations",
-        "Custom reporting tools",
-      ],
-      featured: false,
-    },
-  ],
+import { PriceTable } from "@/types/project";
+import { useRouter } from "vue-router";
+
+// router路由配置
+const router = useRouter();
+
+// 导向价格选择页面路由
+const webDesignPriceDetail = (type: string) => {
+  router.push(`/freelance/web-design-content/${type}`);
 };
+// 页面数据
+const priceList: PriceTable[] = [
+  {
+    name: "WEB基础设计",
+    isHot: false,
+    price: "2000RMB",
+    toObject: "入门展示型页面",
+    introduction: "适合个人介绍、小型项目展示",
+    type: "level-one",
+    featuresList: [
+      "单页设计",
+      "响应式布局",
+      "简洁美观、快速上线",
+      "协助部署",
+      "域名配置",
+    ],
+  },
+  {
+    name: "WEB动画设计",
+    isHot: true,
+    price: "6000RMB",
+    toObject: "标准版网站开发",
+    introduction: "适合小型企业、画廊、工作室",
+    type: "level-two",
+    featuresList: [
+      "多页面结构",
+      "响应式布局",
+      "艺术化动效、UI 组件优化",
+      "表单收集",
+      "SEO优化基础设置",
+      "协助部署",
+      "域名配置",
+    ],
+  },
+  {
+    name: "WEB设计PRO",
+    isHot: false,
+    price: "10000RMB",
+    toObject: "定制版网站开发",
+    introduction: "适合艺术机构、高端品牌方",
+    type: "level-three",
+    featuresList: [
+      "多页面结构",
+      "响应式布局",
+      "表单收集",
+      "SEO优化基础设置",
+      "定制UI设计风格",
+      "多语言支持",
+      "后端服务接入",
+      "协助部署",
+      "域名配置",
+      "售后支持",
+    ],
+  },
+];
 const faqs = [
   {
     question: "What's the best thing about Switzerland?",
@@ -544,4 +535,39 @@ const footerNavigation = {
 };
 
 const mobileMenuOpen = ref(false);
+
+const navigation = [
+  { name: "首页", href: "/" },
+  { name: "返回", href: "#", action: "back" },
+];
 </script>
+<style>
+/* 导入艺术字 */
+.article-Douyin-Sans-rem {
+  font-family: "Douyin Sans";
+  font-weight: 700;
+  font-size: 1rem;
+}
+.article-Douyin-Sans-2rem {
+  font-family: "Douyin Sans";
+  font-weight: 1700;
+  font-size: 2rem;
+}
+.article-Douyin-Sans-5rem {
+  font-family: "Douyin Sans";
+  font-weight: 700;
+  font-size: 5rem;
+}
+.article-ToneOZ-YinPZ-Tsuipita-TC-5rem {
+  font-family: "ToneOZ-YinPZ-Tsuipita-TC";
+  font-weight: 400;
+  font-size: 5rem;
+  font-style: normal;
+}
+.article-ToneOZ-YinPZ-Tsuipita-TC-2rem {
+  font-family: "ToneOZ-YinPZ-Tsuipita-TC";
+  font-weight: 400;
+  font-size: 2rem;
+  font-style: normal;
+}
+</style>
