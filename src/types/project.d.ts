@@ -122,6 +122,7 @@ export interface PriceTable {
   isHot: boolean;
   toObject?: string;
   introduction: string;
+  type: "level-one" | "level-two" | "level-three";
   price: string;
   featuresList: string[];
   border?: boolean;
