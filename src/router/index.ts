@@ -1,4 +1,3 @@
-import App from "@/App.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
@@ -51,6 +50,25 @@ const router = createRouter({
       component: () =>
         import("@/views/contentview/project-content/mes-kutangguo.vue"),
     },
+    // freelance相关路由
+    {
+      path: "/freelance",
+      name: "freelance",
+      component: () => import("@/views/contentview/freelance/freelance.vue"),
+    },
+    {
+      path: "/freelance/web-design",
+      name: "freelance-web-design",
+      component: () => import("@/views/contentview/freelance/web-design.vue"),
+    },
+    {
+      path: "/freelance/web-design-content/:type",
+      name: "freelance-web-design-content",
+      component: () =>
+        import(
+          "@/views/contentview/freelance/web-design-content/web-price-detail.vue"
+        ),
+    },
     // 测试用路由
     {
       path: "/test",
@@ -65,6 +83,11 @@ const router = createRouter({
         import(
           "@/views/contentview/project-content/md-to-html/html-display-view.vue"
         ),
+    },
+    {
+      path: "/testtwo",
+      name: "testtwo",
+      component: () => import("@/views/contentview/freelance/text.vue"),
     },
   ],
 });

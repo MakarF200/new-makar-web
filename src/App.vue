@@ -2,18 +2,36 @@
 // import { RouterLink, RouterView } from 'vue-router'
 import AsideVue from "@/views/topview/aside.vue";
 import ContentVue from "@/views/topview/contentview.vue";
+import { onMounted, ref } from "vue";
+//  transition动画数据
+const showside = ref(false);
+const showcontent = ref(false);
+onMounted(() => {
+  showside.value = true;
+  showcontent.value = true;
+});
 </script>
 
 <template>
-  <div class="div-top w-screen h-screen flex overflow-hidden p-2 ">
+  <div class="div-top h-screen w-screen flex overflow-hidden p-2">
     <!-- 目录侧边栏 -->
-    <div class="asidevue bg-purple-50 rounded-box box-content w-1/8 min-w-[200px]">
-      <AsideVue></AsideVue>
-    </div>
+    <Transition name="side">
+      <div
+        v-if="showside"
+        class="asidevue bg-purple-50 rounded-box box-content w-[200px]"
+      >
+        <AsideVue></AsideVue>
+      </div>
+    </Transition>
     <!-- 内容栏 -->
-    <div class="contentvue bg-purple-50 rounded-box flex-1 ml-2 overflow-auto">
-      <ContentVue></ContentVue>
-    </div>
+    <Transition name="content">
+      <div
+        v-if="showcontent"
+        class="contentvue bg-purple-50 rounded-box flex-1 ml-2 overflow-auto"
+      >
+        <ContentVue></ContentVue>
+      </div>
+    </Transition>
   </div>
 </template>
 
@@ -23,9 +41,30 @@ import ContentVue from "@/views/topview/contentview.vue";
   display: flex;
   max-width: 100%;
 }
-
 ol {
   list-style: decimal !important;
+}
+.side-enter-active,
+.side-leave-active {
+  transition: all 1s ease-in-out;
+}
+.content-enter-active,
+.content-leave-active {
+  transition: all 1s ease-in-out;
+}
+.side-enter-from,
+.side-leave-to,
+.content-enter-from,
+.content-leave-to {
+  opacity: 0;
+}
+.side-enter-from,
+.side-leave-to {
+  transform: translateX(-100%);
+}
+.content-enter-from,
+.content-leave-to {
+  transform: translateX(100%);
 }
 </style>
 
