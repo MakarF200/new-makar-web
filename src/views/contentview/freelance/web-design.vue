@@ -411,7 +411,7 @@ import {
   XMarkIcon,
 } from "@heroicons/vue/24/outline";
 
-import { PriceTable } from "@/types/project";
+import type { PriceTable } from "@/types/project";
 import { useRouter } from "vue-router";
 
 // router路由配置
