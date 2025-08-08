@@ -18,7 +18,7 @@ onMounted(() => {
     <Transition name="side">
       <div
         v-if="showside"
-        class="asidevue bg-purple-50 rounded-box box-content w-[200px]"
+        class="asidevue bg-purple-50 rounded-box box-content w-[200px] hidden lg:block"
       >
         <AsideVue></AsideVue>
       </div>

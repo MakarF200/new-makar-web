@@ -143,7 +143,7 @@
             <div
               v-for="item in priceList"
               :key="item.name"
-              class="w-full sm:w-1/2 lg:w-1/3 p-4"
+              class="w-full lg:w-1/3 p-4"
             >
               <div
                 class="rounded-lg p-4 h-full"
@@ -285,12 +285,14 @@
 
       <!-- FAQ section -->
       <div class="mx-auto my-24 max-w-7xl px-6 sm:my-56 lg:px-8">
-        <div class="mx-auto max-w-4xl">
-          <h2
-            class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
-          >
-            Frequently asked questions
-          </h2>
+        <div class="mx-auto max-w-7xl">
+          <div class="flex justify-center items-center">
+            <h2
+              class="text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
+            >
+              相关问答
+            </h2>
+          </div>
           <dl class="mt-16 divide-y divide-gray-900/10">
             <Disclosure
               as="div"
@@ -303,7 +305,7 @@
                 <DisclosureButton
                   class="flex w-full items-start justify-between text-left text-gray-900"
                 >
-                  <span class="text-base/7 font-semibold">{{
+                  <span class="font-douyin font-bold text-2xl">{{
                     faq.question
                   }}</span>
                   <span class="ml-6 flex h-7 items-center">
@@ -316,8 +318,12 @@
                   </span>
                 </DisclosureButton>
               </dt>
-              <DisclosurePanel as="dd" class="mt-2 pr-12">
-                <p class="text-base/7 text-gray-600">{{ faq.answer }}</p>
+              <DisclosurePanel as="dd" class="mt-2 pr-12 flex flex-row h-24">
+                <div class="h-full w-1 mr-2 bg-purple-200"></div>
+                <p
+                  class="text-base/7 text-gray-600 ml-2 font-douyin font-medium"
+                  v-html="faq.answer"
+                ></p>
               </DisclosurePanel>
             </Disclosure>
           </dl>
@@ -326,7 +332,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900">
+    <!-- <footer class="bg-gray-900">
       <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
         <div class="xl:grid xl:grid-cols-3 xl:gap-8">
           <img class="h-9" alt="Company name" />
@@ -389,7 +395,7 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer> -->
   </div>
 </template>
 
@@ -478,34 +484,32 @@ const priceList: PriceTable[] = [
 ];
 const faqs = [
   {
-    question: "What's the best thing about Switzerland?",
+    question: "三个套餐有什么区别？",
     answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "WEB基础设计适合个人介绍、小型项目展示；<br>WEB动画设计适合小型企业、画廊、工作室；<br>WEB设计PRO适合艺术机构、高端品牌方。",
   },
   {
-    question: "How do you make holy water?",
+    question: "包含哪些内容？",
     answer:
-      "You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam aut tempora vitae odio inventore fuga aliquam nostrum quod porro. Delectus quia facere id sequi expedita natus.",
+      "WEB基础设计提供 1 页网页设计（响应式布局），支持基础表单收集功能。<br>WEB动画设计提供 3 页网页设计（响应式布局），免费一年的表单收集功能。<br>WEB设计PRO提供 5 页网页设计（响应式布局），免费一年的表单收集功能。",
   },
   {
-    question: "What do you call someone with no body and no nose?",
-    answer:
-      "Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, voluptas ipsa quia excepturi, quibusdam natus exercitationem sapiente tempore labore voluptatem.",
+    question: "额外页面如何计费？",
+    answer: "超出 1 页部分，每增加一页 +¥2000。",
   },
   {
-    question: "Why do you never see elephants hiding in trees?",
-    answer:
-      "Because they're so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+    question: "是否包含域名和服务器？",
+    answer: "不包含，但我们可以协助您购买和配置。",
   },
   {
-    question: "Why can't you hear a pterodactyl go to the bathroom?",
+    question: "是否包含长期维护？",
     answer:
-      "Because the pee is silent. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam, quas voluptatibus ex culpa ipsum, aspernatur blanditiis fugiat ullam magnam suscipit deserunt illum natus facilis atque vero consequatur! Quisquam, debitis error.",
+      "WEB基础版不包含长期维护。<br>WEB动画版包含3个月的技术支持。<br>WEB设计PRO包含6个月的技术支持。",
   },
   {
-    question: "Why did the invisible man turn down the job offer?",
+    question: "多久能完成？",
     answer:
-      "He couldn't see himself doing it. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eveniet perspiciatis officiis corrupti tenetur. Temporibus ut voluptatibus, perferendis sed unde rerum deserunt eius.",
+      "WEB基础设计与开发周期约 3-5 个工作日（具体视需求而定）。<br>WEB动画设计与开发周期约 5-7 个工作日（视动画复杂度调整）。<br>WEB设计PRO开发周期约 7-15 个工作日（视需求复杂度调整）。",
   },
 ];
 const footerNavigation = {
