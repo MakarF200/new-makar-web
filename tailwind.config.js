@@ -4,6 +4,15 @@ export default {
   content: ["./src/**/*.{html,js,jsx,ts,tsx,vue}"],
   theme: {
     extend: {
+      fontFamily: {
+        // 中文字体
+        douyin: ['"DouyinSansBold"', "sans-serif"],
+        toneoz: ['"ToneOZ-YinPZ-Tsuipita-TC"', "sans-serif"],
+        // 英文字体
+        homenaje: ['"Homenaje"', "sans-serif"],
+        joti: ['"Joti One"', "sans-serif"],
+        tangerine: ['"Tangerine"', "sans-serif"],
+      },
       height: {
         "5vh": "5vh",
         "10vh": "10vh",
