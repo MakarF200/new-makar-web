@@ -14,7 +14,7 @@
         class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 mt-4 rounded-box"
         aria-label="Global"
       >
-        <!-- 返回按钮 -->
+        <!-- 汉堡包按钮 -->
         <div class="flex lg:hidden">
           <button
             type="button"
@@ -25,7 +25,7 @@
             <Bars3Icon class="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <!-- 汉堡按钮 -->
+        <!-- 返回按钮 -->
         <div class="hidden lg:flex lg:gap-x-12">
           <button
             type="button"

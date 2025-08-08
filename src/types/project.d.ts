@@ -38,7 +38,7 @@ export interface ShowThisVueRotationImg {
 }
 
 /**
- * 定义项目的数据结构TS格式
+ * @ProjectObj 定义项目的数据结构TS格式
  */
 export interface ProjectObj {
   /** 项目的唯一标识 */
@@ -115,8 +115,10 @@ export interface ProjectObj {
    */
   rotation: ProjectImg[];
 }
-// 报价表格格式
-
+// freelance 相关数据
+/**
+ * @PriceTable 报价表格格式
+ */
 export interface PriceTable {
   name: string;
   isHot: boolean;
@@ -127,4 +129,53 @@ export interface PriceTable {
   featuresList: string[];
   border?: boolean;
   rightTab?: boolean;
+}
+
+/**
+ * @PackageData 套餐数据格式
+ */
+export interface PackageData {
+  name: string;
+  id: string;
+  basePrice: number;
+  includedPages: number;
+  extraPagePrice: number;
+  description: string;
+  technicalSupport: "formSend" | "";
+}
+/**
+ * @WebDesignData 用户选择的网页选择数据
+ */
+export interface WebDesignData {
+  packageName: string;
+  webType: string;
+  webTypeIntroduction: string;
+  webPrice: number;
+  webPages: number;
+  webStyle: string;
+  webStyleIntroduction: string;
+  technicalSupport: string;
+  technicalSupportIntroduction: string;
+  contactDetails: {
+    name: string;
+    emailOrPhone: string;
+    otherMessage: string;
+  };
+}
+/**
+ * 可供选择的网页数据
+ */
+export interface WebDesignDataList {
+  webType:
+    | "企业官网"
+    | "个人作品集"
+    | "产品展示页"
+    | "博客/内容网站"
+    | "一页式介绍页";
+  webTypeIntroduction: string;
+  webPages: string;
+  webStyle: "极简主义" | "艺术感" | "企业风" | "扁平化" | "复古风" | "暗黑模式";
+  webStyleIntroduction: string;
+  technicalSupport: "无" | "表单发送" | "在线客服" | "多语言支持";
+  technicalSupportIntroduction: string;
 }
