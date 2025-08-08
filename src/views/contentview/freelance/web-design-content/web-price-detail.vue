@@ -9,7 +9,7 @@
         <button
           type="button"
           class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-          @click="mobileMenuOpen = true"
+          @click="mobileMenuOpen = !mobileMenuOpen"
         >
           <span class="sr-only">Open main menu</span>
           <Bars3Icon class="h-6 w-6" aria-hidden="true" />
@@ -91,7 +91,7 @@
             <p class="font-douyin text-lg">这里选择您的套餐</p>
           </div>
           <div>
-            <div class="p-4" v-for="item in packageData" :key="item.id">
+            <div class="p-4" v-for="(item, key) in packageData" :key="key">
               <button
                 type="button"
                 class="rounded-md h-20 w-full border-2 border-gray-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
@@ -107,9 +107,10 @@
                 {{ item.name }}
               </button>
             </div>
-            <div>
+            <!-- 测试按钮 -->
+            <!-- <div>
               <button @click="test">test</button>
-            </div>
+            </div> -->
           </div>
         </div>
         <div
@@ -135,8 +136,8 @@
           </div>
           <div
             class="p-2"
-            v-for="item in webDesignDataList.webType"
-            :key="item.id"
+            v-for="(item, key) in webDesignDataList.webType"
+            :key="key"
           >
             <button
               type="button"
@@ -337,15 +338,21 @@ const test = () => {
   setTimeout(() => {
     console.log("is going 4s");
   }, 4000);
+  console.log(
+    shortTimeTechnicalSupportPrice.value,
+    "shortTimeTechnicalSupportPrice"
+  );
+  console.log(shortTimeWebPagesPrice.value, "shortTimeWebPagesPrice");
 };
 
+// 消息弹窗数据
+const ifErrMessage = ref<boolean>(false);
+const messageType = ref<"error" | "remind" | "">("error");
+const message = ref<string>("");
+const mobileMenuOpen = ref<boolean>(false);
 /**
  * 左侧数据
  */
-// 消息弹窗数据
-const ifErrMessage = ref(false);
-const messageType = ref<"error" | "remind">("error");
-const message = ref("");
 // 套餐类型和对应函数
 
 const selectPackage = (
@@ -359,14 +366,15 @@ const selectPackage = (
   showMessage("以修改套餐对应的页面数据", "remind");
 };
 // 套餐数据
-const packageData = ref<PackageData>({
+const packageData = ref<Record<string, PackageData>>({
   "level-one": {
     name: "WEB基础设计",
     id: "level-one",
     basePrice: 2000,
     includedPages: 1,
     extraPagePrice: 2000,
-    technicalSupport: "",
+    description: "基础套餐，包含1个页面，价格为2000元",
+    technicalSupport: [],
   },
   "level-two": {
     name: "WEB动画设计",
@@ -374,7 +382,8 @@ const packageData = ref<PackageData>({
     basePrice: 6000,
     includedPages: 3,
     extraPagePrice: 2000,
-    technicalSupport: "表单发送",
+    description: "动画套餐，包含3个页面，价格为6000元",
+    technicalSupport: ["表单发送"],
   },
   "level-three": {
     name: "WEB设计PRO",
@@ -382,12 +391,16 @@ const packageData = ref<PackageData>({
     basePrice: 10000,
     includedPages: 5,
     extraPagePrice: 2000,
-    technicalSupport: "表单发送",
+    description: "专业套餐，包含5个页面，价格为10000元",
+    technicalSupport: ["表单发送"],
   },
 });
 /**
  * 右侧数据
  */
+// 临时数据，用于存放页面和技术支持的临时价格
+const shortTimeTechnicalSupportPrice = ref<number>(0);
+const shortTimeWebPagesPrice = ref<number>(0);
 // 用户选择的套餐数据
 const userData = ref<WebDesignData>({
   packageName: "",
@@ -397,7 +410,7 @@ const userData = ref<WebDesignData>({
   webPages: 1,
   webStyle: "",
   webStyleIntroduction: "",
-  technicalSupport: [""],
+  technicalSupport: [],
   technicalSupportIntroduction: "",
   contactDetails: {
     name: "",
@@ -407,7 +420,7 @@ const userData = ref<WebDesignData>({
 });
 /**
  * @function technicalSupport
- * @description 判断技术支持是否存在，存在则删除，不存在则添加
+ * @description 判断技术支持是否存在，存在则删除，不存在则添加,并计算临时价格
  * @param type 技术支持类型数据
  */
 const technicalSupport = (type: string) => {
@@ -416,21 +429,44 @@ const technicalSupport = (type: string) => {
       const index = userData.value.technicalSupport.indexOf(type);
       userData.value.technicalSupport.splice(index, 1);
     } else {
-      userData.value.technicalSupport = ["无"];
+      userData.value.technicalSupport = [];
       userData.value.technicalSupport.push(type);
+      shortTimeTechnicalSupportPrice.value = 0;
     }
   } else {
     if (userData.value.technicalSupport.includes(type)) {
       const index = userData.value.technicalSupport.indexOf(type);
       userData.value.technicalSupport.splice(index, 1);
+      if (type === "表单发送") {
+        shortTimeTechnicalSupportPrice.value -= 1800;
+      } else if (type === "在线客服") {
+        shortTimeTechnicalSupportPrice.value -= 15000;
+      } else if (type === "多语言支持") {
+        shortTimeTechnicalSupportPrice.value -= 1500;
+      } else if (type === "其他") {
+        shortTimeTechnicalSupportPrice.value -= 0;
+      }
     } else {
       if (userData.value.technicalSupport.includes("无")) {
         const index = userData.value.technicalSupport.indexOf("无");
         userData.value.technicalSupport.splice(index, 1);
       }
       userData.value.technicalSupport.push(type);
+      if (type === "表单发送") {
+        shortTimeTechnicalSupportPrice.value += 1800;
+      } else if (type === "在线客服") {
+        shortTimeTechnicalSupportPrice.value += 15000;
+      } else if (type === "多语言支持") {
+        shortTimeTechnicalSupportPrice.value += 1500;
+      } else if (type === "其他") {
+        shortTimeTechnicalSupportPrice.value += 0;
+      }
     }
   }
+  userData.value.webPrice =
+    packageData.value[userData.value.packageName].basePrice +
+    shortTimeTechnicalSupportPrice.value +
+    shortTimeWebPagesPrice.value;
 };
 // 可供选择的网页数据
 const webDesignDataList = ref<WebDesignDataList>({
@@ -481,7 +517,7 @@ const showMessage = (msg: string, type: "error" | "remind") => {
     ifErrMessage.value = false;
     message.value = "";
     messageType.value = "";
-  }, 4000);
+  }, 4000) as unknown as number;
 };
 
 /**
@@ -515,7 +551,7 @@ const ifComplete = () => {
     showMessage("请选择页面风格", "error");
     return false;
   }
-  if (userData.value.technicalSupport.length === 1) {
+  if (userData.value.technicalSupport.length === 0) {
     showMessage("请选择技术支持", "error");
     return false;
   }
@@ -531,8 +567,9 @@ const ifComplete = () => {
 };
 /**
  * @function pagesFunction
- * @description 更改页面数量函数
+ * @description 更改页面数量并计算相应的价格
  */
+
 const pagesFunction = (operate: string) => {
   if (operate === "add") {
     userData.value.webPages++;
@@ -552,10 +589,13 @@ const pagesFunction = (operate: string) => {
     const pages =
       userData.value.webPages -
       packageData.value[userData.value.packageName].includedPages;
-    userData.value.webPrice =
-      packageData.value[userData.value.packageName].basePrice +
+    shortTimeWebPagesPrice.value =
       pages * packageData.value[userData.value.packageName].extraPagePrice;
   }
+  userData.value.webPrice =
+    packageData.value[userData.value.packageName].basePrice +
+    shortTimeTechnicalSupportPrice.value +
+    shortTimeWebPagesPrice.value;
   console.log(
     userData.value.webPages,
     userData.value.webPrice,

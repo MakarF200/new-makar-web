@@ -141,7 +141,7 @@ export interface PackageData {
   includedPages: number;
   extraPagePrice: number;
   description: string;
-  technicalSupport: "formSend" | "";
+  technicalSupport: string[];
 }
 /**
  * @WebDesignData 用户选择的网页选择数据
@@ -154,7 +154,7 @@ export interface WebDesignData {
   webPages: number;
   webStyle: string;
   webStyleIntroduction: string;
-  technicalSupport: string;
+  technicalSupport: string[];
   technicalSupportIntroduction: string;
   contactDetails: {
     name: string;
@@ -166,16 +166,11 @@ export interface WebDesignData {
  * 可供选择的网页数据
  */
 export interface WebDesignDataList {
-  webType:
-    | "企业官网"
-    | "个人作品集"
-    | "产品展示页"
-    | "博客/内容网站"
-    | "一页式介绍页";
+  webType: string[];
   webTypeIntroduction: string;
-  webPages: string;
-  webStyle: "极简主义" | "艺术感" | "企业风" | "扁平化" | "复古风" | "暗黑模式";
+  webPages: string[];
+  webStyle: string[];
   webStyleIntroduction: string;
-  technicalSupport: "无" | "表单发送" | "在线客服" | "多语言支持";
+  technicalSupport: string[];
   technicalSupportIntroduction: string;
 }
