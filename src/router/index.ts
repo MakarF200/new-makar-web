@@ -89,6 +89,11 @@ const router = createRouter({
       name: "testtwo",
       component: () => import("@/views/contentview/freelance/text.vue"),
     },
+    {
+      path: "/navigation-test",
+      name: "navigation-test",
+      component: () => import("@/components/component-vue/navigation-bar.vue"),
+    },
   ],
 });
 

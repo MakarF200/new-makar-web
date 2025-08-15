@@ -9,117 +9,7 @@
 
 <template>
   <div class="bg-white">
-    <header>
-      <nav
-        class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8 mt-4 rounded-box"
-        aria-label="Global"
-      >
-        <!-- 汉堡包按钮 -->
-        <div class="flex lg:hidden">
-          <button
-            type="button"
-            class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            @click="mobileMenuOpen = true"
-          >
-            <span class="sr-only">Open main menu</span>
-            <Bars3Icon class="h-6 w-6" aria-hidden="true" />
-          </button>
-        </div>
-        <!-- 返回按钮 -->
-        <div class="hidden lg:flex lg:gap-x-12">
-          <button
-            type="button"
-            @click="router.back()"
-            class="rounded-md bg-purple-200 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            返回
-          </button>
-        </div>
-        <!-- 语言选择按钮 -->
-        <div>
-          <label
-            for="language"
-            class="block text-sm font-medium text-gray-700 sr-only"
-            >语言选择</label
-          >
-          <div class="relative">
-            <select
-              id="language"
-              name="language"
-              class="appearance-none rounded-md border border-purple-200 bg-purple-200 px-3 py-2 pr-8 text-sm text-gray-900 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
-            >
-              <option value="zh">中文</option>
-              <option value="en">English</option>
-              <option value="ja">日本語</option>
-            </select>
-            <ChevronDownIcon
-              class="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
-              aria-hidden="true"
-            />
-          </div>
-        </div>
-      </nav>
-      <!-- TODO：这里需要调整汉堡包的dialog显示的内容 -->
-      <Dialog
-        class="lg:hidden"
-        @close="mobileMenuOpen = false"
-        :open="mobileMenuOpen"
-      >
-        <div class="fixed inset-0 z-50" />
-        <DialogPanel
-          class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"
-        >
-          <div class="flex items-center justify-between">
-            <a href="#" class="-m-1.5 p-1.5">
-              <span class="sr-only">Your Company</span>
-              <img class="h-8 w-auto" src="" alt="" />
-            </a>
-            <button
-              type="button"
-              class="-m-2.5 rounded-md p-2.5 text-gray-700"
-              @click="mobileMenuOpen = false"
-            >
-              <span class="sr-only">Close menu</span>
-              <XMarkIcon class="size-6" aria-hidden="true" />
-            </button>
-          </div>
-          <div class="mt-6 flow-root">
-            <div class="-my-6 divide-y divide-gray-500/10">
-              <div class="space-y-2 py-6">
-                <template v-for="item in navigation" :key="item.name">
-                  <a
-                    v-if="!item.action"
-                    :href="item.href"
-                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                    @click="mobileMenuOpen = false"
-                    >{{ item.name }}</a
-                  >
-                  <button
-                    v-else-if="item.action === 'back'"
-                    type="button"
-                    class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 w-full text-left"
-                    @click="
-                      router.back();
-                      mobileMenuOpen = false;
-                    "
-                  >
-                    {{ item.name }}
-                  </button>
-                </template>
-              </div>
-              <div class="py-6">
-                <a
-                  href="#"
-                  class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
-                  >Log in</a
-                >
-              </div>
-            </div>
-          </div>
-        </DialogPanel>
-      </Dialog>
-    </header>
-
+    <NavigationBar />
     <main>
       <!-- 价格选择 -->
       <form class="group/tiers bg-white pt-24 sm:pt-32">
@@ -196,10 +86,10 @@
           </div>
         </div>
       </form>
-      <!-- Testimonial section -->
+      <!-- 同行评价 -->
       <div class="mx-auto mt-24 max-w-7xl sm:mt-56 sm:px-6 lg:px-8">
         <div
-          class="relative overflow-hidden bg-gray-900 px-6 py-20 shadow-xl sm:rounded-3xl sm:px-10 sm:py-24 md:px-12 lg:px-20"
+          class="relative overflow-hidden bg-gray-900 px-6 py-10 shadow-xl sm:rounded-3xl sm:px-10 sm:py-12 md:px-12 lg:px-10"
         >
           <img
             class="absolute inset-0 size-full object-cover brightness-150 saturate-0"
@@ -262,28 +152,41 @@
               "
             />
           </div>
-          <div class="relative mx-auto max-w-2xl lg:mx-0">
-            <img class="h-12 w-auto" alt="" />
+          <div class="relative mx-auto lg:mx-0">
+            <img class="h-10 w-auto" alt="" />
             <figure>
               <blockquote
-                class="mt-6 text-lg font-semibold text-white sm:text-xl/8"
+                class="mt-4 text-lg font-semibold text-white sm:text-xl/8"
               >
                 <p>
-                  “Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-                  expedita voluptas culpa sapiente alias molestiae. Numquam
-                  corrupti in laborum sed rerum et corporis.”
+                  这款产品真正改变了我们的工作方式，提升了整个团队的协作效率。设计直观，功能强大，是我们日常运营中不可或缺的工具。
+                </p>
+                <p v-if="false">
+                  English: This product has truly transformed the way we work,
+                  boosting collaboration across our entire team. Its intuitive
+                  design and powerful features make it an essential part of our
+                  daily operations.
                 </p>
               </blockquote>
-              <figcaption class="mt-6 text-base text-white">
-                <div class="font-semibold">Judith Black</div>
-                <div class="mt-1">CEO of Workcation</div>
+              <figcaption class="mt-6 text-base text-white flex">
+                <div class="mr-4">
+                  <img
+                    src="@/assets/images/wudequan.png"
+                    alt=""
+                    class="w-12 h-12 rounded-full"
+                  />
+                </div>
+                <div>
+                  <div class="font-semibold">吴德全</div>
+                  <div class="mt-1">南昌爱酷科技CTO</div>
+                </div>
               </figcaption>
             </figure>
           </div>
         </div>
       </div>
 
-      <!-- FAQ section -->
+      <!-- 相关问答 -->
       <div class="mx-auto my-24 max-w-7xl px-6 sm:my-56 lg:px-8">
         <div class="mx-auto max-w-7xl">
           <div class="flex justify-center items-center">
@@ -318,8 +221,8 @@
                   </span>
                 </DisclosureButton>
               </dt>
-              <DisclosurePanel as="dd" class="mt-2 pr-12 flex flex-row h-24">
-                <div class="h-full w-1 mr-2 bg-purple-200"></div>
+              <DisclosurePanel as="dd" class="mt-2 pr-12 flex flex-row">
+                <div class="w-1 mr-2 bg-purple-200"></div>
                 <p
                   class="text-base/7 text-gray-600 ml-2 font-douyin font-medium"
                   v-html="faq.answer"
@@ -330,7 +233,6 @@
         </div>
       </div>
     </main>
-
     <!-- Footer -->
     <!-- <footer class="bg-gray-900">
       <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
@@ -402,6 +304,7 @@
 <script setup lang="ts">
 import { ChevronDownIcon } from "@heroicons/vue/16/solid";
 import { CheckIcon } from "@heroicons/vue/24/outline";
+import NavigationBar from "@/components/component-vue/navigation-bar.vue";
 import { ref } from "vue";
 import {
   Dialog,
@@ -505,6 +408,15 @@ const faqs = [
     question: "是否包含长期维护？",
     answer:
       "WEB基础版不包含长期维护。<br>WEB动画版包含3个月的技术支持。<br>WEB设计PRO包含6个月的技术支持。",
+  },
+  {
+    question: "长期维护结束后网站还能访问吗？",
+    answer: "当然可以，在域名和服务器过期前，您可以继续使用。 ",
+  },
+  {
+    question: "是否包含SEO优化？",
+    answer:
+      "WEB基础设计不包含，WEB动画设计包含基础SEO优化，WEB设计PRO包含SEO优化基础设置。",
   },
   {
     question: "多久能完成？",
