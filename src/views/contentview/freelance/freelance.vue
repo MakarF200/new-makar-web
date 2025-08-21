@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>Freelance</h1>
+    <div class="flex flex-row items-center justify-center">
+      <h1 class="text-2xl font-bold">我能为您做什么？</h1>
+    </div>
     <div class="menu">
       <router-link to="/freelance/web-design">Web Design</router-link>
       <!-- 可以添加更多链接 -->

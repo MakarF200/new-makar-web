@@ -1,8 +1,11 @@
 <template>
+  <NavigationBar />
   <div class="py-8">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <h2 class="joti-one-regular text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+        <h2
+          class="joti-one-regular text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
+        >
           Makar's Project
         </h2>
         <p class="homenaje-regular mt-2 mb-16 text-lg/8 text-gray-600">
@@ -10,12 +13,19 @@
         </p>
       </div>
       <div>
-        <div v-for="mainDataObj in ProjectMainData" :key="mainDataObj.id" class="">
+        <div
+          v-for="mainDataObj in ProjectMainData"
+          :key="mainDataObj.id"
+          class=""
+        >
           <RouterLink :to="mainDataObj.key">
             <div class="bg-purple-200 rounded-box flex">
               <div class="place-content-center">
-                <img :src="mainDataObj.titleImg.imgUrl" alt=""
-                  class="m-2 size-20 rounded-box object-center max-w-none" />
+                <img
+                  :src="mainDataObj.titleImg.imgUrl"
+                  alt=""
+                  class="m-2 size-20 rounded-box object-center max-w-none"
+                />
               </div>
               <div class="">
                 {{ mainDataObj.description }}
@@ -32,6 +42,7 @@ import { computed } from "vue";
 // 导入store/pinia数据
 import { StoreProjectData } from "@/stores/project-store";
 import { RouterLink } from "vue-router";
+import NavigationBar from "@/components/component-vue/navigation-bar.vue";
 // 解构store
 const ProjectStore = StoreProjectData();
 const ProjectMainData = computed(() => ProjectStore.projectMainData);

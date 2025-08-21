@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* 强制浅色模式 */
+html {
+  color-scheme: light only;
+}
+
+body {
+  color-scheme: light only;
+  background-color: #faf5ff !important;
+}
+
+/* 禁用系统主题切换 */
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    color-scheme: light only;
+  }
+}

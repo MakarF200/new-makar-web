@@ -1,7 +1,127 @@
 <template>
+  <!-- 导航栏 -->
+  <div class="block lg:hidden">
+    <nav
+      class="mx-auto flex flex-row max-w-7xl items-center lg:justify-end justify-between p-6 lg:px-8 mt-4 rounded-box"
+      aria-label="Global"
+    >
+      <!-- 汉堡包按钮 -->
+      <div class="flex lg:hidden">
+        <button
+          type="button"
+          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+          @click="mobileMenuOpen = true"
+        >
+          <span class="sr-only">Open main menu</span>
+          <NavigationHamburger class="h-6 w-6" />
+        </button>
+      </div>
+      <!-- 返回按钮 -->
+      <div class="hidden">
+        <button
+          type="button"
+          @click="router.back()"
+          class="rounded-md bg-purple-200 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        >
+          返回
+        </button>
+      </div>
+      <!-- 语言选择按钮 -->
+      <div>
+        <label
+          for="language"
+          class="block text-sm font-medium text-gray-700 sr-only"
+          >语言选择</label
+        >
+        <div class="relative">
+          <select
+            id="language"
+            name="language"
+            class="appearance-none rounded-md border border-purple-200 bg-purple-200 px-3 py-2 pr-8 text-sm text-gray-900 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+          >
+            <option value="zh">中文</option>
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+          </select>
+          <ChevronDownIcon
+            class="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
+            aria-hidden="true"
+          />
+        </div>
+      </div>
+    </nav>
+    <!-- TODO：这里需要调整汉堡包的dialog显示的内容 -->
+    <Dialog
+      class="lg:hidden one"
+      @close="mobileMenuOpen = false"
+      :open="mobileMenuOpen"
+    >
+      <div class="fixed inset-0 z-50 two bg-purple-50" />
+      <DialogPanel
+        class="fixed px-8 inset-y-0 three right-0 z-50 w-full overflow-y-auto bg-white py-6 lg:max-w-lg lg:ring-1 lg:ring-gray-900/10"
+      >
+        <!-- 顶部 Logo + 关闭按钮 -->
+        <div class="flex items-center justify-between mt-8">
+          <button
+            type="button"
+            class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            @click="mobileMenuOpen = false"
+          >
+            <span class="sr-only">close main menu</span>
+            <NavigationHamburger class="h-6 w-6" />
+          </button>
+        </div>
+        <!-- 菜单项 -->
+        <div class="mt-6 flow-root">
+          <div class="-my-6 divide-y divide-gray-500/10">
+            <div class="space-y-2 py-6">
+              <template v-for="item in sideData" :key="item.name">
+                <!-- 侧边栏链接 -->
+                <a
+                  v-if="item.action"
+                  :href="item.href"
+                  class="-mx-3 flex items-center rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                  @click="mobileMenuOpen = false"
+                >
+                  <component :is="item.icon" class="w-6 h-6 mr-2" />
+                  {{ item.name }}
+                </a>
+              </template>
+            </div>
+          </div>
+        </div>
+      </DialogPanel>
+    </Dialog>
+  </div>
+
   <!-- 介绍 -->
   <div class="cdiv">
-    <p class="joti-one-regular text-purple-300">Hi I'm Makar</p>
+    <div class="flex flex-row justify-between items-center">
+      <p class="joti-one-regular text-purple-300">Hi I'm Makar</p>
+      <div class="hidden lg:block pr-6">
+        <label
+          for="language"
+          class="block text-sm font-medium text-gray-700 sr-only"
+          >语言选择</label
+        >
+        <div class="relative">
+          <select
+            id="language"
+            name="language"
+            class="appearance-none rounded-md border border-purple-200 bg-purple-200 px-3 py-2 pr-8 text-sm text-gray-900 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+          >
+            <option value="zh">中文</option>
+            <option value="en">English</option>
+            <option value="ja">日本語</option>
+          </select>
+          <ChevronDownIcon
+            class="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
+            aria-hidden="true"
+          />
+        </div>
+      </div>
+    </div>
+
     <p class="homenaje-regular">
       🙌 a perpetual apprentice and now a front-end engineer with a keen
       interest in AI and its applications;<br />
@@ -19,27 +139,55 @@
     </div>
     <!-- x.com -->
     <a class="ca" href="https://x.com/F404Ka">
-      <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        width="30"
+        height="30"
+        viewBox="0 0 48 48"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <path
           d="M5 35.7622C6.92886 36.8286 20.8914 44.8773 30.8199 38.674C40.7483 32.4707 40.2006 21.7833 40.2006 16.886C41.1 15.0018 43 14.0439 43 8.9438C41.1337 10.6678 39.2787 11.2544 37.435 10.7036C35.6287 7.94957 33.1435 6.73147 29.9794 7.04934C25.2333 7.52614 23.4969 12.1825 24.0079 18.2067C16.6899 21.9074 10.9515 15.524 7.99418 10.7036C7.00607 14.4999 6.0533 19.0576 7.99418 24.0995C9.2881 27.4607 12.3985 30.3024 17.3254 32.6246C12.3323 35.3308 8.22382 36.3766 5 35.7622Z"
-          fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round" />
+          fill="none"
+          stroke="#333"
+          stroke-width="4"
+          stroke-linejoin="round"
+        />
       </svg>
     </a>
     <!-- github -->
     <a class="ca" href="https://github.com/Tunny-F404">
-      <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        width="30"
+        height="30"
+        viewBox="0 0 48 48"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <path
           d="M29.3444 30.4765C31.7481 29.977 33.9292 29.1108 35.6247 27.8391C38.5202 25.6676 40 22.3136 40 18.9999C40 16.6752 39.1187 14.505 37.5929 12.6668C36.7427 11.6425 39.2295 3.99989 37.02 5.02919C34.8105 6.05848 31.5708 8.33679 29.8726 7.83398C28.0545 7.29565 26.0733 6.99989 24 6.99989C22.1992 6.99989 20.4679 7.22301 18.8526 7.6344C16.5046 8.23237 14.2591 5.99989 12 5.02919C9.74086 4.05848 10.9736 11.9632 10.3026 12.7944C8.84119 14.6051 8 16.7288 8 18.9999C8 22.3136 9.79086 25.6676 12.6863 27.8391C14.6151 29.2857 17.034 30.2076 19.7401 30.6619"
-          stroke="#333" stroke-width="4" stroke-linecap="round" />
+          stroke="#333"
+          stroke-width="4"
+          stroke-linecap="round"
+        />
         <path
           d="M19.7397 30.6619C18.5812 31.937 18.002 33.1478 18.002 34.2944C18.002 35.441 18.002 38.3464 18.002 43.0106"
-          stroke="#333" stroke-width="4" stroke-linecap="round" />
+          stroke="#333"
+          stroke-width="4"
+          stroke-linecap="round"
+        />
         <path
           d="M29.3446 30.4766C30.4423 31.9174 30.9912 33.211 30.9912 34.3576C30.9912 35.5042 30.9912 38.3885 30.9912 43.0107"
-          stroke="#333" stroke-width="4" stroke-linecap="round" />
+          stroke="#333"
+          stroke-width="4"
+          stroke-linecap="round"
+        />
         <path
           d="M6 31.2155C6.89887 31.3254 7.56554 31.7387 8 32.4554C8.65169 33.5303 11.0742 37.518 13.8251 37.518C15.6591 37.518 17.0515 37.518 18.0024 37.518"
-          stroke="#333" stroke-width="4" stroke-linecap="round" />
+          stroke="#333"
+          stroke-width="4"
+          stroke-linecap="round"
+        />
       </svg>
     </a>
     <!-- weChat -->
@@ -90,26 +238,74 @@
   <div class="">
     <!-- 项目Project -->
     <div class="bg-purple-100 rounded-box">
-      <div class="bg-purple-200 rounded-box" style="display: flex; padding: 0.8rem">
-        <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M44 14L24 4L4 14V34L24 44L44 34V14Z" stroke="#333" stroke-width="4" stroke-linejoin="round" />
-          <path d="M4 14L24 24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M24 44V24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M44 14L24 24" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M34 9L14 19" stroke="#333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+      <div
+        class="bg-purple-200 rounded-box"
+        style="display: flex; padding: 0.8rem"
+      >
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 48 48"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M44 14L24 4L4 14V34L24 44L44 34V14Z"
+            stroke="#333"
+            stroke-width="4"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M4 14L24 24"
+            stroke="#333"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M24 44V24"
+            stroke="#333"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M44 14L24 24"
+            stroke="#333"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M34 9L14 19"
+            stroke="#333"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
         </svg>
         <h2 class="homenaje-regular" style="padding-left: 1rem">Project</h2>
       </div>
       <div class="">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32"
-            style="padding-top: 0; padding-bottom: 2rem">
-            <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
-              <div v-for="projectMainDataObj in ProjectMainData" :key="projectMainDataObj.id"
-                class="group relative bg-purple-200 rounded-xl flex">
+          <div
+            class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32"
+            style="padding-top: 0; padding-bottom: 2rem"
+          >
+            <div
+              class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0"
+            >
+              <div
+                v-for="projectMainDataObj in ProjectMainData"
+                :key="projectMainDataObj.id"
+                class="group relative bg-purple-200 rounded-xl flex"
+              >
                 <RouterLink :to="projectMainDataObj.key">
-                  <img :src="projectMainDataObj.showImageUrl" alt=""
-                    class="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-[2/1] lg:aspect-square" />
+                  <img
+                    :src="projectMainDataObj.showImageUrl"
+                    alt=""
+                    class="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-[2/1] lg:aspect-square"
+                  />
                   <p class="mt-4 mb-4 text-sm text-gray-500 text-center">
                     {{ projectMainDataObj.name }}
                   </p>
@@ -125,28 +321,61 @@
     </div>
     <!-- 技能 -->
     <div class="bg-purple-100 rounded-box mt-4">
-      <div class="bg-purple-200 rounded-box" style="display: flex; padding: 0.8rem">
-        <svg width="30" height="30" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div
+        class="bg-purple-200 rounded-box"
+        style="display: flex; padding: 0.8rem"
+      >
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 48 48"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
             d="M18 6H8C6.89543 6 6 6.89543 6 8V18C6 19.1046 6.89543 20 8 20H18C19.1046 20 20 19.1046 20 18V8C20 6.89543 19.1046 6 18 6Z"
-            fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round" />
+            fill="none"
+            stroke="#333"
+            stroke-width="4"
+            stroke-linejoin="round"
+          />
           <path
             d="M18 28H8C6.89543 28 6 28.8954 6 30V40C6 41.1046 6.89543 42 8 42H18C19.1046 42 20 41.1046 20 40V30C20 28.8954 19.1046 28 18 28Z"
-            fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round" />
+            fill="none"
+            stroke="#333"
+            stroke-width="4"
+            stroke-linejoin="round"
+          />
           <path
             d="M35 20C38.866 20 42 16.866 42 13C42 9.13401 38.866 6 35 6C31.134 6 28 9.13401 28 13C28 16.866 31.134 20 35 20Z"
-            fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round" />
+            fill="none"
+            stroke="#333"
+            stroke-width="4"
+            stroke-linejoin="round"
+          />
           <path
             d="M40 28H30C28.8954 28 28 28.8954 28 30V40C28 41.1046 28.8954 42 30 42H40C41.1046 42 42 41.1046 42 40V30C42 28.8954 41.1046 28 40 28Z"
-            fill="none" stroke="#333" stroke-width="4" stroke-linejoin="round" />
+            fill="none"
+            stroke="#333"
+            stroke-width="4"
+            stroke-linejoin="round"
+          />
         </svg>
         <h2 class="homenaje-regular" style="padding-left: 1rem">Skill</h2>
       </div>
-      <div v-for="skillData in SkillData" :key="skillData.title" style="padding: 0.8rem">
+      <div
+        v-for="skillData in SkillData"
+        :key="skillData.title"
+        style="padding: 0.8rem"
+      >
         <div class="homenaje-regular">{{ skillData.title }}</div>
         <div style="display: flex; flex-wrap: wrap">
-          <div v-for="data in skillData.content" :key="data.name" class="bg-purple-200 rounded-box m-1"
-            style="padding: 0.5rem">
+          <div
+            v-for="data in skillData.content"
+            :key="data.name"
+            class="bg-purple-200 rounded-box m-1"
+            style="padding: 0.5rem"
+          >
             <div>{{ data.name }}</div>
           </div>
         </div>
@@ -158,14 +387,19 @@
 // 导入store/pinia数据
 import { StoreProjectData } from "@/stores/project-store";
 import { StoreSkillData } from "@/stores/skill-store";
-import { computed } from "vue";
-import { RouterLink } from "vue-router";
-
+import { computed, ref } from "vue";
+import { RouterLink, useRouter } from "vue-router";
+import NavigationHamburger from "@/assets/icons/navigation-hamburger.svg";
+import { PiniaAsideData } from "@/stores/aside-store";
+const router = useRouter();
+const asideStore = PiniaAsideData();
+const { sideData } = asideStore;
 // 解构store
 const ProjectStore = StoreProjectData();
 const ProjectMainData = computed(() => ProjectStore.projectMainData);
 const SkillStore = StoreSkillData();
 const SkillData = computed(() => SkillStore.data);
+const mobileMenuOpen = ref(false);
 // project 展示数据
 </script>
 <style scoped>
