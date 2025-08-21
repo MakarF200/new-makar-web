@@ -13,7 +13,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="div-top h-screen w-screen flex overflow-hidden p-2">
+  <div class="flex overflow-hidden p-2 w-screen h-screen div-top">
     <!-- 目录侧边栏 -->
     <Transition name="side">
       <div
@@ -27,7 +27,7 @@ onMounted(() => {
     <Transition name="content">
       <div
         v-if="showcontent"
-        class="contentvue bg-purple-50 rounded-box flex-1 overflow-auto"
+        class="overflow-auto flex-1 bg-purple-50 contentvue rounded-box"
       >
         <ContentVue></ContentVue>
       </div>
@@ -66,9 +66,11 @@ ol {
 .content-leave-to {
   transform: translateX(100%);
 }
+* {
+  color-scheme: light only;
+}
 </style>
 
 <!-- 这里是这个项目要做的TODO树 -->
 <!-- TODO: 配置网站的cloudflare -->
 <!-- TODO: 完成md to html项目 -->
-<!-- TODO: 在项目中添加动画 -->
