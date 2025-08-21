@@ -2,7 +2,7 @@
 import daisyui from "daisyui";
 export default {
   content: ["./src/**/*.{html,js,jsx,ts,tsx,vue}"],
-  darkMode: "false",
+  darkMode: false,
   theme: {
     extend: {
       fontFamily: {
@@ -69,5 +69,9 @@ export default {
       },
     },
   },
-  plugins: [daisyui({ darkTheme: false, themes: ["light"] })],
+  plugins: [daisyui],
+  daisyui: {
+    themes: ["light"],
+    darkTheme: false,
+  },
 };

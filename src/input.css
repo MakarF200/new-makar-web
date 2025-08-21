@@ -18,3 +18,72 @@ body {
     color-scheme: light only;
   }
 }
+* {
+  color-scheme: light only;
+}
+/* 强制特定文字颜色保持深色 */
+.text-gray-900,
+.text-gray-800,
+.text-gray-700,
+.text-gray-600,
+.text-gray-500,
+.text-gray-400,
+.text-gray-300,
+.text-gray-200,
+.text-gray-100,
+.text-gray-50 {
+  color: inherit !important;
+}
+
+/* 确保主要文字颜色保持深色 */
+.text-gray-900 {
+  color: #111827 !important; /* 深灰色 */
+}
+
+.text-gray-600 {
+  color: #4b5563 !important; /* 中灰色 */
+}
+
+.text-gray-500 {
+  color: #6b7280 !important; /* 浅灰色 */
+}
+
+/* 强制所有文字默认颜色为深色 */
+body,
+div,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+a,
+button,
+input,
+textarea,
+select {
+  color: #111827 !important;
+}
+
+/* 特殊颜色保持原样 */
+.text-purple-300,
+.text-purple-400,
+.text-purple-500,
+.text-purple-600,
+.text-purple-700,
+.text-purple-800,
+.text-purple-900,
+.text-red-500,
+.text-red-600,
+.text-red-700,
+.text-red-800,
+.text-red-900,
+.text-indigo-500,
+.text-indigo-600,
+.text-indigo-700,
+.text-indigo-800,
+.text-indigo-900 {
+  color: inherit !important;
+}
