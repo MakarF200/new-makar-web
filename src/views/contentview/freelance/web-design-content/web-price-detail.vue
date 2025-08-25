@@ -1,25 +1,41 @@
 <template>
   <div class="">
     <!-- 导航栏 -->
-    <NavigationBar />
-    <div class="p-4 flex justify-center items-center">
-      <h2 class="font-douyin text-3xl font-bold">定制您的网页</h2>
+    <NavigationBar
+      :show-message="ifErrMessage"
+      :message-content="message"
+      :message-type="messageType"
+    >
+      <template #message="{ message, type }">
+        <div
+          class="flex justify-center items-center bg-white rounded-lg border-2 shadow-lg"
+          :class="getMessageContainerClass(type)"
+        >
+          <component :is="getMessageIcon(type)" class="mr-2 w-6 h-6" />
+          <p class="text-lg font-semibold" :class="getMessageTextClass(type)">
+            {{ message }}
+          </p>
+        </div>
+      </template>
+    </NavigationBar>
+    <div class="flex justify-center items-center p-4">
+      <h2 class="text-3xl font-bold font-douyin">定制您的网页</h2>
     </div>
     <!-- 内容 -->
     <div
-      class="flex flex-col lg:flex-row max-w-7xl mx-auto border-t-2 border-purple-200"
+      class="flex flex-col mx-auto max-w-7xl border-t-2 border-purple-200 lg:flex-row"
     >
       <!-- 左内容 -->
-      <div class="w-full lg:w-1/2 hidden lg:flex flex-col justify-between">
+      <div class="hidden flex-col justify-between w-full lg:w-1/2 lg:flex">
         <div>
-          <div class="p-6 justify-center items-center flex flex-col">
-            <p class="font-douyin text-lg">这里选择您的套餐</p>
+          <div class="flex flex-col justify-center items-center p-6">
+            <p class="text-lg font-douyin">这里选择您的套餐</p>
           </div>
           <div>
             <div class="p-4" v-for="(item, key) in packageData" :key="key">
               <button
                 type="button"
-                class="rounded-md h-20 w-full border-2 border-gray-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                class="px-3.5 py-2.5 w-full h-20 text-sm font-semibold text-white rounded-md border-2 border-gray-300 shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 @click="
                   selectPackage(item.id, item.basePrice, item.includedPages)
                 "
@@ -39,22 +55,22 @@
           </div>
         </div>
         <div
-          class="py-12 mx-4 border-4 border-purple-200 rounded-xl flex justify-center items-center"
+          class="flex justify-center items-center py-12 mx-4 rounded-xl border-4 border-purple-200"
         >
-          <h2 class="font-douyin text-3xl font-bold">
+          <h2 class="text-3xl font-bold font-douyin">
             {{ userData.webPrice }} RMB
           </h2>
         </div>
       </div>
       <!-- 右内容 -->
       <div class="w-full lg:w-1/2 overflow-y-auto h-[calc(100vh-14.5rem)]">
-        <div class="p-6 justify-center items-center flex flex-col">
-          <p class="font-douyin text-lg">这里选择套餐的详细内容</p>
+        <div class="flex flex-col justify-center items-center p-6">
+          <p class="text-lg font-douyin">这里选择套餐的详细内容</p>
         </div>
         <div>
           <div class="flex justify-center items-center">
             <h2
-              class="font-douyin text-lg font-bold px-4 py-2 border-b-4 border-purple-200"
+              class="px-4 py-2 text-lg font-bold border-b-4 border-purple-200 font-douyin"
             >
               页面类型
             </h2>
@@ -66,7 +82,7 @@
           >
             <button
               type="button"
-              class="rounded-md h-20 w-full border-2 border-gray-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              class="px-3.5 py-2.5 w-full h-20 text-sm font-semibold text-white rounded-md border-2 border-gray-300 shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               @click="userData.webType = item"
               :class="
                 userData.webType === item
@@ -81,14 +97,14 @@
             <input
               type="text"
               placeholder="页面类型备注"
-              class="rounded-md h-20 w-full border-2 border-gray-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              class="px-3.5 py-2.5 w-full h-20 text-sm font-semibold text-white rounded-md border-2 border-gray-300 shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               v-model="userData.webTypeIntroduction"
             />
           </div>
           <div class="p-2">
             <div class="flex justify-center items-center p-8">
               <h2
-                class="font-douyin text-lg font-bold px-4 py-2 border-b-4 border-purple-200"
+                class="px-4 py-2 text-lg font-bold border-b-4 border-purple-200 font-douyin"
               >
                 页面数量
               </h2>
@@ -97,21 +113,21 @@
               <div class="flex gap-2">
                 <input
                   type="number"
-                  class="rounded-md h-20 w-1/3 border-2 border-gray-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  class="px-3.5 py-2.5 w-1/3 h-20 text-sm font-semibold text-white rounded-md border-2 border-gray-300 shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   v-model="userData.webPages"
                 />
                 <div class="flex gap-2 w-2/3">
                   <button
                     @click="pagesFunction('add')"
                     type="button"
-                    class="rounded-md h-20 w-full border-2 border-gray-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    class="px-3.5 py-2.5 w-full h-20 text-sm font-semibold text-white rounded-md border-2 border-gray-300 shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     +
                   </button>
                   <button
                     @click="pagesFunction('sub')"
                     type="button"
-                    class="rounded-md h-20 w-full border-2 border-gray-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    class="px-3.5 py-2.5 w-full h-20 text-sm font-semibold text-white rounded-md border-2 border-gray-300 shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     -
                   </button>
@@ -122,7 +138,7 @@
           <div>
             <div class="flex justify-center items-center p-8">
               <h2
-                class="font-douyin text-lg font-bold px-4 py-2 border-b-4 border-purple-200"
+                class="px-4 py-2 text-lg font-bold border-b-4 border-purple-200 font-douyin"
               >
                 页面风格
               </h2>
@@ -135,7 +151,7 @@
               >
                 <button
                   type="button"
-                  class="rounded-md h-20 w-full border-2 border-gray-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  class="px-3.5 py-2.5 w-full h-20 text-sm font-semibold text-white rounded-md border-2 border-gray-300 shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   @click="userData.webStyle = item"
                   :class="
                     userData.webStyle === item
@@ -150,7 +166,7 @@
                 <input
                   type="text"
                   placeholder="页面风格备注"
-                  class="rounded-md h-20 w-full border-2 border-gray-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  class="px-3.5 py-2.5 w-full h-20 text-sm font-semibold text-white rounded-md border-2 border-gray-300 shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   v-model="userData.webStyleIntroduction"
                 />
               </div>
@@ -159,7 +175,7 @@
           <div>
             <div class="flex justify-center items-center p-8">
               <h2
-                class="font-douyin text-lg font-bold px-4 py-2 border-b-4 border-purple-200"
+                class="px-4 py-2 text-lg font-bold border-b-4 border-purple-200 font-douyin"
               >
                 技术支持
               </h2>
@@ -172,7 +188,7 @@
               >
                 <button
                   type="button"
-                  class="rounded-md h-20 w-full border-2 border-gray-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  class="px-3.5 py-2.5 w-full h-20 text-sm font-semibold text-white rounded-md border-2 border-gray-300 shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   @click="technicalSupport(item)"
                   :class="
                     userData.technicalSupport.includes(item)
@@ -187,7 +203,7 @@
                 <input
                   type="text"
                   placeholder="技术支持备注"
-                  class="rounded-md h-20 w-full border-2 border-gray-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  class="px-3.5 py-2.5 w-full h-20 text-sm font-semibold text-white rounded-md border-2 border-gray-300 shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   v-model="userData.technicalSupportIntroduction"
                 />
               </div>
@@ -196,7 +212,7 @@
           <div>
             <div class="flex justify-center items-center p-8">
               <h2
-                class="font-douyin text-lg font-bold px-4 py-2 border-b-4 border-purple-200"
+                class="px-4 py-2 text-lg font-bold border-b-4 border-purple-200 font-douyin"
               >
                 联系方式
               </h2>
@@ -205,7 +221,7 @@
               <input
                 type="text"
                 placeholder="怎么称呼您"
-                class="rounded-md h-20 w-full border-2 border-gray-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                class="px-3.5 py-2.5 w-full h-20 text-sm font-semibold text-white rounded-md border-2 border-gray-300 shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 v-model="userData.contactDetails.name"
               />
             </div>
@@ -213,7 +229,7 @@
               <input
                 type="text"
                 placeholder="联系您的邮箱或手机号"
-                class="rounded-md h-20 w-full border-2 border-gray-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                class="px-3.5 py-2.5 w-full h-20 text-sm font-semibold text-white rounded-md border-2 border-gray-300 shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 v-model="userData.contactDetails.emailOrPhone"
               />
             </div>
@@ -221,17 +237,17 @@
               <input
                 type="text"
                 placeholder="备注您的需求"
-                class="rounded-md h-20 w-full border-2 border-gray-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                class="px-3.5 py-2.5 w-full h-20 text-sm font-semibold text-white rounded-md border-2 border-gray-300 shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 v-model="userData.contactDetails.otherMessage"
               />
             </div>
           </div>
         </div>
         <!-- 提交 -->
-        <div class="p-8 mb-8 flex justify-center items-center">
+        <div class="flex justify-center items-center p-8 mb-8">
           <button
             type="button"
-            class="rounded-full w-40 h-40 bg-purple-100 border-2 border-purple-300 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            class="px-3.5 py-2.5 w-40 h-40 text-sm font-semibold text-white bg-purple-100 rounded-full border-2 border-purple-300 shadow-sm hover:bg-purple-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             @click="inSubmit"
           >
             提交
@@ -243,39 +259,50 @@
 </template>
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
-import { useRoute, useRouter } from "vue-router";
+import { useRoute } from "vue-router";
 import NavigationBar from "@/components/component-vue/navigation-bar.vue";
 import type {
   PackageData,
   WebDesignData,
   WebDesignDataList,
 } from "@/types/project";
-import { Bars3Icon } from "@heroicons/vue/16/solid";
-const router = useRouter();
+import { submitWebDesignData } from "@/utils/form-utils";
+import YesIcon from "@/assets/icons/yes.svg";
+import NoIcon from "@/assets/icons/no.svg";
+
 const route = useRoute();
-// test
-const test = () => {
-  const testdata = [];
-  const inType = route.params.type as string;
-  testdata.push(inType);
-  console.log(testdata);
-  console.log(userData.value);
-  console.log(packageData.value);
-  setTimeout(() => {
-    console.log("is going 4s");
-  }, 4000);
-  console.log(
-    shortTimeTechnicalSupportPrice.value,
-    "shortTimeTechnicalSupportPrice"
-  );
-  console.log(shortTimeWebPagesPrice.value, "shortTimeWebPagesPrice");
-};
 
 // 消息弹窗数据
 const ifErrMessage = ref<boolean>(false);
 const messageType = ref<"error" | "remind" | "">("error");
 const message = ref<string>("");
-const mobileMenuOpen = ref<boolean>(false);
+
+// 消息样式处理方法
+const getMessageContainerClass = (type: string) => {
+  if (type === "error") {
+    return "border-red-300 bg-red-50";
+  } else if (type === "remind") {
+    return "border-green-300 bg-green-50";
+  }
+};
+
+const getMessageIcon = (type: string) => {
+  if (type === "error") {
+    return NoIcon;
+  } else if (type === "remind") {
+    return YesIcon;
+  }
+};
+
+const getMessageTextClass = (type: string) => {
+  if (type === "error") {
+    return "text-red-700";
+  } else if (type === "remind") {
+    return "text-green-700";
+  } else {
+    return "text-gray-700";
+  }
+};
 /**
  * 左侧数据
  */
@@ -450,9 +477,32 @@ const showMessage = (msg: string, type: "error" | "remind") => {
  * @function inSubmit
  * @description 提交数据
  */
-const inSubmit = () => {
+const inSubmit = async () => {
   if (ifComplete()) {
-    console.log(userData.value);
+    try {
+      // 准备提交的数据
+      const submitData = {
+        ...userData.value,
+        submitTime: new Date().toISOString(),
+        packageDetails: packageData.value[userData.value.packageName],
+      };
+
+      // 使用 submitWebDesignData 函数提交数据
+      const response = await submitWebDesignData(submitData, "getform");
+
+      if (response.ok) {
+        showMessage("提交成功！我们会尽快与您联系", "remind");
+        console.log(response, "response,ok");
+        // 可以在这里重置表单或跳转到其他页面
+        // router.push('/success');
+      } else {
+        showMessage("提交失败，请稍后重试", "error");
+        console.log(response, "response,error");
+      }
+    } catch (error) {
+      console.error("提交错误:", error);
+      showMessage("提交失败，请检查网络连接", "error");
+    }
   }
 };
 

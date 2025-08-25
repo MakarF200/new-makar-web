@@ -174,3 +174,4 @@ export interface WebDesignDataList {
   technicalSupport: string[];
   technicalSupportIntroduction: string;
 }
+export type SubmitMode = "getform" | "backend";
