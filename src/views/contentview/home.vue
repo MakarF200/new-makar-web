@@ -306,7 +306,9 @@
                     alt=""
                     class="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-[2/1] lg:aspect-square"
                   />
-                  <p class="mt-4 mb-4 text-sm text-gray-500 text-center">
+                  <p
+                    class="mt-4 mb-4 text-sm text-center article-Douyin-Sans-1rem"
+                  >
                     {{ projectMainDataObj.name }}
                   </p>
                 </RouterLink>
@@ -376,7 +378,9 @@
             class="bg-purple-200 rounded-box m-1"
             style="padding: 0.5rem"
           >
-            <div>{{ data.name }}</div>
+            <p class="article-Douyin-Sans-1rem text-gray-500">
+              {{ data.name }}
+            </p>
           </div>
         </div>
       </div>
@@ -425,5 +429,11 @@ const mobileMenuOpen = ref(false);
 .link-div {
   width: auto;
   margin: 0.5rem;
+}
+
+.article-Douyin-Sans-1rem {
+  font-family: "Douyin Sans";
+  font-weight: 700;
+  font-size: 1rem;
 }
 </style>

@@ -92,7 +92,7 @@ export const StoreSkillData = defineStore("skillData", () => {
         },
         {
           svg: "",
-          name: "Python",
+          name: "FastAPI",
         },
         {
           svg: "",
@@ -118,7 +118,7 @@ export const StoreSkillData = defineStore("skillData", () => {
       ],
     },
     {
-      title: "Host & Databases",
+      title: "Host / Databases",
       content: [
         {
           svg: "",
@@ -138,17 +138,54 @@ export const StoreSkillData = defineStore("skillData", () => {
         },
         {
           svg: "",
+          name: "PostgreSQL",
+        },
+        {
+          svg: "",
           name: "MySQL",
         },
         {
           svg: "",
           name: "SQLite",
         },
+        {
+          svg: "",
+          name: "Docker",
+        },
+      ],
+    },
+    {
+      title: "AI / LLM",
+      content: [
+        {
+          svg: "",
+          name: "Qwen.gguf",
+        },
+        {
+          svg: "",
+          name: "Llama.gguf",
+        },
+        {
+          svg: "",
+          name: "Gemini",
+        },
+        {
+          svg: "",
+          name: "ChatGPT",
+        },
+        {
+          svg: "",
+          name: "Perplexity",
+        },
       ],
     },
     {
       title: "IDEs / Tools",
       content: [
+        {
+          svg: "",
+          name: "Cursor",
+        },
         {
           svg: "",
           name: "Visual Studio Code",
