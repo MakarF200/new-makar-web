@@ -25,6 +25,7 @@
             <div class="flex flex-row">
               <div class="place-content-center">
                 <img
+                  v-if="mainDataObj.titleImg"
                   :src="mainDataObj.titleImg.imgUrl"
                   alt=""
                   class="m-2 w-20 h-20 rounded-box object-center max-w-none"
