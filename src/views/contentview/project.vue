@@ -16,36 +16,50 @@
         <div
           v-for="mainDataObj in ProjectMainData"
           :key="mainDataObj.id"
-          class=""
+          class="max-h-40"
         >
-          <RouterLink :to="mainDataObj.key">
-            <div class="bg-purple-200 rounded-box flex">
+          <div
+            class="bg-purple-200 rounded-box flex m-2 cursor-pointer transition-colors hover:bg-purple-300"
+            @click="projectContent(mainDataObj.key)"
+          >
+            <div class="flex flex-row">
               <div class="place-content-center">
                 <img
                   :src="mainDataObj.titleImg.imgUrl"
                   alt=""
-                  class="m-2 size-20 rounded-box object-center max-w-none"
+                  class="m-2 w-20 h-20 rounded-box object-center max-w-none"
                 />
               </div>
-              <div class="">
+              <p class="text-sm text-gray-500 homenaje-regular m-2">
                 {{ mainDataObj.description }}
-              </div>
+              </p>
             </div>
-          </RouterLink>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { computed } from "vue";
 // 导入store/pinia数据
-import { StoreProjectData } from "@/stores/project-store";
-import { RouterLink } from "vue-router";
+import {
+  StoreProjectData,
+  getProjectShowImgData,
+} from "@/stores/project-store";
+import { useRouter } from "vue-router";
 import NavigationBar from "@/components/component-vue/navigation-bar.vue";
 // 解构store
 const ProjectStore = StoreProjectData();
 const ProjectMainData = computed(() => ProjectStore.projectMainData);
+// router路由配置
+const router = useRouter();
+// 导向项目内容页面路由
+const projectContent = (type: string) => {
+  getProjectShowImgData(type);
+  router.push(`/project-content/${type}`);
+  console.log("导向项目内容页面路由", type);
+};
 </script>
 <style scoped>
 .homenaje-regular {

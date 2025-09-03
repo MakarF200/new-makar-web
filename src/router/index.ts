@@ -50,6 +50,14 @@ const router = createRouter({
       component: () =>
         import("@/views/contentview/project-content/mes-kutangguo.vue"),
     },
+    {
+      path: "/project-content/:type",
+      name: "project-content",
+      component: () =>
+        import(
+          "@/components/component-vue/project-component/project-component.vue"
+        ),
+    },
     // freelance相关路由
     {
       path: "/freelance",
@@ -88,6 +96,14 @@ const router = createRouter({
       path: "/testtwo",
       name: "testtwo",
       component: () => import("@/views/contentview/freelance/text.vue"),
+    },
+    {
+      path: "/testthree",
+      name: "testthree",
+      component: () =>
+        import(
+          "@/components/component-vue/project-component/project-component.vue"
+        ),
     },
     {
       path: "/navigation-test",

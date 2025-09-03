@@ -138,7 +138,10 @@
       </p>
     </div>
     <!-- x.com -->
-    <a class="ca" href="https://x.com/F404Ka">
+    <a
+      class="ca flex items-center justify-center rounded-box transition-colors hover:bg-purple-300"
+      href="https://x.com/F404Ka"
+    >
       <svg
         width="30"
         height="30"
@@ -156,7 +159,10 @@
       </svg>
     </a>
     <!-- github -->
-    <a class="ca" href="https://github.com/Tunny-F404">
+    <a
+      class="ca flex items-center justify-center rounded-box transition-colors hover:bg-purple-300"
+      href="https://github.com/Tunny-F404"
+    >
       <svg
         width="30"
         height="30"
@@ -298,13 +304,16 @@
               <div
                 v-for="projectMainDataObj in ProjectMainData"
                 :key="projectMainDataObj.id"
-                class="group relative bg-purple-200 rounded-xl flex"
+                class="group relative bg-purple-200 rounded-box flex"
               >
-                <RouterLink :to="projectMainDataObj.key">
+                <RouterLink
+                  :to="projectMainDataObj.key"
+                  class="rounded-box transition-colors hover:bg-purple-300"
+                >
                   <img
                     :src="projectMainDataObj.showImageUrl"
                     alt=""
-                    class="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-[2/1] lg:aspect-square"
+                    class="w-full rounded-box bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-[2/1] lg:aspect-square"
                   />
                   <p
                     class="mt-4 mb-4 text-sm text-center article-Douyin-Sans-1rem"
@@ -317,9 +326,9 @@
           </div>
         </div>
       </div>
-      <div class="text-right" style="padding: 0 2rem 1rem 0">
+      <!-- <div class="text-right" style="padding: 0 2rem 1rem 0">
         <button class="btn bg-purple-300">More</button>
-      </div>
+      </div> -->
     </div>
     <!-- 技能 -->
     <div class="bg-purple-100 rounded-box mt-4">

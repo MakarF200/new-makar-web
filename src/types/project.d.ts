@@ -15,7 +15,17 @@ export interface ProjectImg {
   /** 图片的id */
   id?: string;
 }
-
+export interface ProjectText {
+  title: string;
+  contentTextOne?: string;
+  contentTextTwo?: string;
+  contentTextThree?: string;
+  contentTextFour?: string;
+  contentTextFive?: string;
+  contentTextSix?: string;
+  contentTextSeven?: string;
+  contentTextEight?: string;
+}
 /**
  * @ProjectLink 项目链接TS格式
  */
@@ -115,7 +125,7 @@ export interface ProjectObj {
    */
   rotation: ProjectImg[];
 }
-// freelance 相关数据
+// freelance 接口定义
 /**
  * @PriceTable 报价表格格式
  */
