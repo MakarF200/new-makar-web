@@ -407,7 +407,7 @@ import {
 } from "@/stores/project-store";
 import { StoreSkillData } from "@/stores/skill-store";
 import { computed, ref } from "vue";
-import { RouterLink, useRouter } from "vue-router";
+import { useRouter } from "vue-router";
 import NavigationHamburger from "@/assets/icons/navigation-hamburger.svg";
 import { PiniaAsideData } from "@/stores/aside-store";
 const router = useRouter();

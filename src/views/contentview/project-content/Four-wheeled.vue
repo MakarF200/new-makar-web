@@ -90,7 +90,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ChevronRightIcon } from "@heroicons/vue/20/solid";
 import { computed, onMounted, ref } from "vue";
 // 导入projectStore并处理数据
 import { StoreProjectData } from "@/stores/project-store";
