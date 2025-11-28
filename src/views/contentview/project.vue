@@ -1,14 +1,14 @@
 <template>
   <NavigationBar />
   <div class="py-8">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="px-6 mx-auto max-w-7xl lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
         <h2
-          class="joti-one-regular text-balance text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
+          class="text-4xl font-semibold tracking-tight text-gray-900 joti-one-regular text-balance sm:text-5xl"
         >
           Makar's Project
         </h2>
-        <p class="homenaje-regular mt-2 mb-16 text-lg/8 text-gray-600">
+        <p class="mt-2 mb-16 text-gray-600 homenaje-regular text-lg/8">
           Here you can see Makar creative with some project and fun games
         </p>
       </div>
@@ -19,7 +19,7 @@
           class="max-h-40"
         >
           <div
-            class="bg-purple-200 rounded-box flex m-2 cursor-pointer transition-colors hover:bg-purple-300"
+            class="flex m-2 bg-purple-200 transition-colors cursor-pointer rounded-box hover:bg-purple-300"
             @click="projectContent(mainDataObj.key)"
           >
             <div class="flex flex-row">
@@ -28,10 +28,13 @@
                   v-if="mainDataObj.titleImg"
                   :src="mainDataObj.titleImg.imgUrl"
                   alt=""
-                  class="m-2 w-20 h-20 rounded-box object-center max-w-none"
+                  class="object-center m-2 w-20 max-w-none h-20 rounded-box"
+                  @error="
+                    handleImgError($event, mainDataObj.titleImg.locImgUrl)
+                  "
                 />
               </div>
-              <p class="text-sm text-gray-500 homenaje-regular m-2">
+              <p class="m-2 text-sm text-gray-500 homenaje-regular">
                 {{ mainDataObj.description }}
               </p>
             </div>
@@ -60,6 +63,13 @@ const projectContent = (type: string) => {
   getProjectShowImgData(type);
   router.push(`/project-content/${type}`);
   console.log("导向项目内容页面路由", type);
+};
+
+const handleImgError = (e: Event, locImgUrl: string) => {
+  const target = e.target as HTMLImageElement;
+  if (target && locImgUrl && !target.src.endsWith(locImgUrl)) {
+    target.src = locImgUrl;
+  }
 };
 </script>
 <style scoped>

@@ -2,18 +2,18 @@
   <!-- 导航栏 -->
   <div class="block lg:hidden">
     <nav
-      class="mx-auto flex flex-row max-w-7xl items-center lg:justify-end justify-between p-6 lg:px-8 mt-4 rounded-box"
+      class="flex flex-row justify-between items-center p-6 mx-auto mt-4 max-w-7xl lg:justify-end lg:px-8 rounded-box"
       aria-label="Global"
     >
       <!-- 汉堡包按钮 -->
       <div class="flex lg:hidden">
         <button
           type="button"
-          class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+          class="inline-flex justify-center items-center p-2.5 -m-2.5 text-gray-700 rounded-md"
           @click="mobileMenuOpen = true"
         >
           <span class="sr-only">Open main menu</span>
-          <NavigationHamburger class="h-6 w-6" />
+          <NavigationHamburger class="w-6 h-6" />
         </button>
       </div>
       <!-- 返回按钮 -->
@@ -21,7 +21,7 @@
         <button
           type="button"
           @click="router.back()"
-          class="rounded-md bg-purple-200 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          class="px-3 py-2 text-sm font-semibold text-white bg-purple-200 rounded-md shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
           返回
         </button>
@@ -37,14 +37,14 @@
           <select
             id="language"
             name="language"
-            class="appearance-none rounded-md border border-purple-200 bg-purple-200 px-3 py-2 pr-8 text-sm text-gray-900 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            class="px-3 py-2 pr-8 text-sm text-gray-900 bg-purple-200 rounded-md border border-purple-200 appearance-none focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
           >
             <option value="zh">中文</option>
             <option value="en">English</option>
             <option value="ja">日本語</option>
           </select>
           <ChevronDownIcon
-            class="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
+            class="absolute right-2 top-1/2 w-4 h-4 text-gray-400 -translate-y-1/2 pointer-events-none"
             aria-hidden="true"
           />
         </div>
@@ -56,34 +56,34 @@
       @close="mobileMenuOpen = false"
       :open="mobileMenuOpen"
     >
-      <div class="fixed inset-0 z-50 two bg-purple-50" />
+      <div class="fixed inset-0 z-50 bg-purple-50 two" />
       <DialogPanel
-        class="fixed px-8 inset-y-0 three right-0 z-50 w-full overflow-y-auto bg-white py-6 lg:max-w-lg lg:ring-1 lg:ring-gray-900/10"
+        class="overflow-y-auto fixed inset-y-0 right-0 z-50 px-8 py-6 w-full bg-white three lg:max-w-lg lg:ring-1 lg:ring-gray-900/10"
       >
         <!-- 顶部 Logo + 关闭按钮 -->
-        <div class="flex items-center justify-between mt-8">
+        <div class="flex justify-between items-center mt-8">
           <button
             type="button"
-            class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            class="inline-flex justify-center items-center p-2.5 -m-2.5 text-gray-700 rounded-md"
             @click="mobileMenuOpen = false"
           >
             <span class="sr-only">close main menu</span>
-            <NavigationHamburger class="h-6 w-6" />
+            <NavigationHamburger class="w-6 h-6" />
           </button>
         </div>
         <!-- 菜单项 -->
-        <div class="mt-6 flow-root">
+        <div class="flow-root mt-6">
           <div class="-my-6 divide-y divide-gray-500/10">
-            <div class="space-y-2 py-6">
+            <div class="py-6 space-y-2">
               <template v-for="item in sideData" :key="item.name">
                 <!-- 侧边栏链接 -->
                 <a
                   v-if="item.action"
                   :href="item.href"
-                  class="-mx-3 flex items-center rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                  class="flex items-center px-3 py-2 -mx-3 font-semibold text-gray-900 rounded-lg text-base/7 hover:bg-gray-50"
                   @click="mobileMenuOpen = false"
                 >
-                  <component :is="item.icon" class="w-6 h-6 mr-2" />
+                  <component :is="item.icon" class="mr-2 w-6 h-6" />
                   {{ item.name }}
                 </a>
               </template>
@@ -97,8 +97,8 @@
   <!-- 介绍 -->
   <div class="cdiv">
     <div class="flex flex-row justify-between items-center">
-      <p class="joti-one-regular text-purple-300">Hi I'm Makar</p>
-      <div class="hidden lg:block pr-6">
+      <p class="text-purple-300 joti-one-regular">Hi I'm Makar</p>
+      <div class="hidden pr-6 lg:block">
         <label
           for="language"
           class="block text-sm font-medium text-gray-700 sr-only"
@@ -108,14 +108,14 @@
           <select
             id="language"
             name="language"
-            class="appearance-none rounded-md border border-purple-200 bg-purple-200 px-3 py-2 pr-8 text-sm text-gray-900 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            class="px-3 py-2 pr-8 text-sm text-gray-900 bg-purple-200 rounded-md border border-purple-200 appearance-none focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
           >
             <option value="zh">中文</option>
             <option value="en">English</option>
             <option value="ja">日本語</option>
           </select>
           <ChevronDownIcon
-            class="pointer-events-none absolute right-2 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400"
+            class="absolute right-2 top-1/2 w-4 h-4 text-gray-400 -translate-y-1/2 pointer-events-none"
             aria-hidden="true"
           />
         </div>
@@ -133,13 +133,13 @@
   <!-- TODO: add links , pleaseeee  -->
   <div class="flex link-div cdiv">
     <div>
-      <p class="homenaje-regular text-purple-300" style="width: 6rem">
+      <p class="text-purple-300 homenaje-regular" style="width: 6rem">
         contact me :
       </p>
     </div>
     <!-- x.com -->
     <a
-      class="ca flex items-center justify-center rounded-box transition-colors hover:bg-purple-300"
+      class="flex justify-center items-center transition-colors ca rounded-box hover:bg-purple-300"
       href="https://x.com/F404Ka"
     >
       <svg
@@ -160,7 +160,7 @@
     </a>
     <!-- github -->
     <a
-      class="ca flex items-center justify-center rounded-box transition-colors hover:bg-purple-300"
+      class="flex justify-center items-center transition-colors ca rounded-box hover:bg-purple-300"
       href="https://github.com/Tunny-F404"
     >
       <svg
@@ -293,9 +293,9 @@
         <h2 class="homenaje-regular" style="padding-left: 1rem">Project</h2>
       </div>
       <div class="">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div
-            class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32"
+            class="py-16 mx-auto max-w-2xl sm:py-24 lg:max-w-none lg:py-32"
             style="padding-top: 0; padding-bottom: 2rem"
           >
             <div
@@ -304,34 +304,37 @@
               <div
                 v-for="projectMainDataObj in ProjectMainData"
                 :key="projectMainDataObj.id"
-                class="group relative bg-purple-200 rounded-box flex"
+                class="flex relative bg-purple-200 cursor-pointer group rounded-box"
+                @click="projectContent(projectMainDataObj.key)"
               >
-                <RouterLink
-                  :to="projectMainDataObj.key"
-                  class="rounded-box transition-colors hover:bg-purple-300"
+                <div
+                  class="w-full transition-colors rounded-box hover:bg-purple-300"
                 >
                   <img
                     :src="projectMainDataObj.showImageUrl"
-                    alt=""
+                    :alt="projectMainDataObj.name"
                     class="w-full rounded-box bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-[2/1] lg:aspect-square"
+                    @error="
+                      handleImgError($event, projectMainDataObj.showLocImgUrl)
+                    "
                   />
                   <p
                     class="mt-4 mb-4 text-sm text-center article-Douyin-Sans-1rem"
                   >
                     {{ projectMainDataObj.name }}
                   </p>
-                </RouterLink>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <!-- <div class="text-right" style="padding: 0 2rem 1rem 0">
-        <button class="btn bg-purple-300">More</button>
+        <button class="bg-purple-300 btn">More</button>
       </div> -->
     </div>
     <!-- 技能 -->
-    <div class="bg-purple-100 rounded-box mt-4">
+    <div class="mt-4 bg-purple-100 rounded-box">
       <div
         class="bg-purple-200 rounded-box"
         style="display: flex; padding: 0.8rem"
@@ -384,10 +387,10 @@
           <div
             v-for="data in skillData.content"
             :key="data.name"
-            class="bg-purple-200 rounded-box m-1"
+            class="m-1 bg-purple-200 rounded-box"
             style="padding: 0.5rem"
           >
-            <p class="article-Douyin-Sans-1rem text-gray-500">
+            <p class="text-gray-500 article-Douyin-Sans-1rem">
               {{ data.name }}
             </p>
           </div>
@@ -398,7 +401,10 @@
 </template>
 <script lang="ts" setup>
 // 导入store/pinia数据
-import { StoreProjectData } from "@/stores/project-store";
+import {
+  StoreProjectData,
+  getProjectShowImgData,
+} from "@/stores/project-store";
 import { StoreSkillData } from "@/stores/skill-store";
 import { computed, ref } from "vue";
 import { RouterLink, useRouter } from "vue-router";
@@ -414,6 +420,19 @@ const SkillStore = StoreSkillData();
 const SkillData = computed(() => SkillStore.data);
 const mobileMenuOpen = ref(false);
 // project 展示数据
+const handleImgError = (e: Event, locImgUrl: string) => {
+  const target = e.target as HTMLImageElement;
+  if (target && locImgUrl && !target.src.endsWith(locImgUrl)) {
+    target.src = locImgUrl;
+  }
+};
+
+// 导向项目内容页面路由
+const projectContent = (type: string) => {
+  getProjectShowImgData(type);
+  router.push(`/project-content/${type}`);
+  console.log("导向项目内容页面路由", type);
+};
 </script>
 <style scoped>
 .ca {

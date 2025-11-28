@@ -161,6 +161,40 @@ export const StoreProjectData = defineStore(
           },
         ],
       },
+      // LLM-News
+      {
+        id: "03",
+        key: "LLM-News",
+        titleImg: {
+          imgUrl: "https://freeimage.host/i/fCXp6CX",
+          locImgUrl: "/png/project/llm-news/llm-news.png",
+          id: "titleImg",
+          key: "llm-news",
+        },
+        name: "LLM News",
+        showImageUrl: "https://freeimage.host/i/fCXp6CX",
+        showLocImgUrl: "/png/project/llm-news/llm-news.png",
+        time: "2025-9-27",
+        description:
+          "An end-to-end AI-powered news aggregation system covering crawling, cleaning, summarization, search, and SSR rendering.",
+        tags: ["En", "Ch"],
+        status: "active",
+        priority: 40,
+        links: {
+          github: "https://github.com/MakarF200/new-summary-project",
+          webUrl: "https://www.antiquenews.xyz/",
+          otherUrl: "",
+        },
+        participants: [{ name: "吴运宇", role: "全栈开发" }],
+        rotation: [
+          {
+            imgUrl: "https://freeimage.host/i/fCXp6CX",
+            locImgUrl: "/png/project/llm-news/llm-news.png",
+            key: "llm-news-web-page-one",
+            id: "3-0",
+          },
+        ],
+      },
     ]);
     return { projectMainData };
   },

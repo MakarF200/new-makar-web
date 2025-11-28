@@ -1,29 +1,27 @@
 <template>
-  <div class="relative isolate overflow-hidden bg-white">
+  <div class="isolate overflow-hidden relative bg-white">
     <div class="">
-      <div class="mx-16 pt-2 lg:flex w-4/6">
+      <div class="pt-2 mx-16 w-4/6 lg:flex">
         <!-- 文字 -->
-        <div class="mx-auto max-w-96 mt-16 lg:mx-0 lg:shrink-0 lg:pt-8">
+        <div class="mx-auto mt-16 max-w-lg lg:mx-0 lg:shrink-0 lg:pt-8">
           <!-- 标题 -->
           <h1
-            class="text-pretty text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl"
+            class="text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl"
           >
             Four-wheeled survey trolley walking mechanism design
           </h1>
           <!-- 介绍内容 -->
-          <p
-            class="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8"
-          >
+          <p class="mt-8 text-lg font-medium text-gray-500 break-words">
             {{ projectStoreDataFourWheeled.description }}
           </p>
         </div>
         <!-- 图片 -->
         <div
-          class="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-16 lg:max-w-none lg:flex-none xl:ml-32"
+          class="flex mx-auto mt-16 max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-16 lg:max-w-none lg:flex-none xl:ml-32"
         >
-          <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
+          <div class="flex-none max-w-3xl sm:max-w-5xl lg:max-w-none"></div>
             <div
-              class="-m-2 rounded-xl bg-gray-900/5 p-2 lg:-m-4 lg:rounded-2xl lg:p-4"
+              class="p-2 -m-2 rounded-xl bg-gray-900/5 lg:-m-4 lg:rounded-2xl lg:p-4"
             >
               <img
                 :src="projectStoreDataFourWheeled.showLocImgUrl"
@@ -37,14 +35,14 @@
         </div>
       </div>
       <!-- 轮播图片 -->
-      <div class="bg-purple-200 rounded-box w-full py-8 mt-16">图片</div>
+      <div class="py-8 mt-16 w-full bg-purple-200 rounded-box">图片</div>
       <div class="w-80% h-auto place-content-center">
-        <div class="mx-auto max-w-7xl py-16 sm:py-24">
+        <div class="py-16 mx-auto max-w-7xl sm:py-24">
           <div class="w-1/8"></div>
           <!-- 图片 -->
           <div></div>
           <div
-            class="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8"
+            class="grid grid-cols-1 gap-y-6 mt-6 sm:grid-cols-2 sm:grid-rows-2 sm:gap-x-6 lg:gap-8"
           >
             <div
               class="group relative aspect-[2/1] overflow-hidden rounded-lg sm:row-span-2 sm:aspect-square"
@@ -52,7 +50,7 @@
               <img
                 :src="showThisProjectImg.leftShow.locImgUrl"
                 :alt="showThisProjectImg.leftShow.key"
-                class="absolute size-full object-cover group-hover:opacity-75"
+                class="object-cover absolute size-full group-hover:opacity-75"
               />
               <div
                 aria-hidden="true"
@@ -65,7 +63,7 @@
               <img
                 :src="showThisProjectImg.rightTopShow.locImgUrl"
                 :alt="showThisProjectImg.rightTopShow.key"
-                class="absolute size-full object-cover group-hover:opacity-75"
+                class="object-cover absolute size-full group-hover:opacity-75"
               />
             </div>
             <div
@@ -74,7 +72,7 @@
               <img
                 :src="showThisProjectImg.rightBotShow.locImgUrl"
                 :alt="showThisProjectImg.rightBotShow.key"
-                class="absolute size-full object-cover group-hover:opacity-75"
+                class="object-cover absolute size-full group-hover:opacity-75"
               />
             </div>
           </div>
