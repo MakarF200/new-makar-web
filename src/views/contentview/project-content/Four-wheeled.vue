@@ -19,7 +19,7 @@
         <div
           class="flex mx-auto mt-16 max-w-2xl sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-16 lg:max-w-none lg:flex-none xl:ml-32"
         >
-          <div class="flex-none max-w-3xl sm:max-w-5xl lg:max-w-none"></div>
+          <div class="flex-none max-w-3xl sm:max-w-5xl lg:max-w-none">
             <div
               class="p-2 -m-2 rounded-xl bg-gray-900/5 lg:-m-4 lg:rounded-2xl lg:p-4"
             >
