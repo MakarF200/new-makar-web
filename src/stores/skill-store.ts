@@ -13,120 +13,144 @@ export const StoreSkillData = defineStore("skillData", () => {
         },
         {
           svg: "",
-          name: "AI",
+          name: "System Design",
         },
         {
           svg: "",
-          name: "Figma",
+          name: "AI Application Development",
         },
         {
           svg: "",
-          name: "Prototyping",
+          name: "Prototyping & UX Wireframing",
         },
         {
           svg: "",
-          name: "Testing",
+          name: "Testing & Debugging",
         },
         {
           svg: "",
-          name: "Flowcharts",
-        },
-        {
-          svg: "",
-          name: "Diagramming",
-        },
-        {
-          svg: "",
-          name: "Photoshop",
+          name: "Diagramming (Flowcharts / Architecture)",
         },
       ],
     },
     {
-      title: "Development",
+      title: "Automation / System Engineering",
+      content: [
+        {
+          svg: "",
+          name: "Auto.js / Termux Automation",
+        },
+        {
+          svg: "",
+          name: "Playwright",
+        },
+        {
+          svg: "",
+          name: "OCR (OpenCV)",
+        },
+        {
+          svg: "",
+          name: "Android Device Control & Scripting",
+        },
+        {
+          svg: "",
+          name: "Multi-account Automation (AdsPower)",
+        },
+      ],
+    },
+    {
+      title: "Frontend Development",
       content: [
         // 前端开发&框架
         {
           svg: "",
-          name: "React",
+          name: "React / Next.js",
         },
         {
           svg: "",
           name: "Vue",
         },
+        // 前端语言
+        {
+          svg: "",
+          name: "JavaScript / TypeScript",
+        },
         // 包
         {
           svg: "",
-          name: "Vite",
-        },
-        {
-          svg: "",
-          name: "Webpack",
+          name: "Vite / Webpack",
         },
         // 前端库
         {
           svg: "",
-          name: "Tailwind CSS",
+          name: "Tailwind CSS / Element Plus / Ant Design",
+        },
+        // 前端技术
+        {
+          svg: "",
+          name: "Responsive UI / SSR / SEO",
         },
         {
           svg: "",
-          name: "Element UI",
+          name: "Zustand / Pinia",
         },
+      ],
+    },
+    {
+      title: "Backend Development",
+      content: [
         // 后端开发&框架
-        {
-          svg: "",
-          name: "Nuxt",
-        },
-        {
-          svg: "",
-          name: "Flask",
-        },
-        // 后端库
-        {
-          svg: "",
-          name: "jQuery",
-        },
-        // 语言
-        {
-          svg: "",
-          name: "JavaScript",
-        },
         {
           svg: "",
           name: "FastAPI",
         },
         {
           svg: "",
-          name: "C&C++",
+          name: "Node.js(basic)",
         },
-        // 标记语言
+        // API设计
         {
           svg: "",
-          name: "HTML",
+          name: "REST API Design",
         },
+        // 异步编程
         {
           svg: "",
-          name: "CSS",
-        },
-        {
-          svg: "",
-          name: "XML",
-        },
-        {
-          svg: "",
-          name: "JSON",
+          name: "AsyncIO / Task Scheduling",
         },
       ],
     },
     {
-      title: "Host / Databases",
+      title: "AI / LLM",
+      content: [
+        {
+          svg: "",
+          name: "LLaMA / Qwen (GGUF inference)",
+        },
+        {
+          svg: "",
+          name: "LLM Integration (RAG, Summarization, Generation)",
+        },
+        {
+          svg: "",
+          name: "API Models: OpenAI / Gemini / Qwen",
+        },
+        {
+          svg: "",
+          name: "Local Model Deployment (GGUF / Quantization)",
+        },
+        {
+          svg: "",
+          name: "Prompt Engineering",
+        },
+      ],
+    },
+    {
+      title: "Databases / Hosting",
       content: [
         {
           svg: "",
           name: "aliyun",
-        },
-        {
-          svg: "",
-          name: "DCloud",
         },
         {
           svg: "",
@@ -155,31 +179,6 @@ export const StoreSkillData = defineStore("skillData", () => {
       ],
     },
     {
-      title: "AI / LLM",
-      content: [
-        {
-          svg: "",
-          name: "Qwen.gguf",
-        },
-        {
-          svg: "",
-          name: "Llama.gguf",
-        },
-        {
-          svg: "",
-          name: "Gemini",
-        },
-        {
-          svg: "",
-          name: "ChatGPT",
-        },
-        {
-          svg: "",
-          name: "Perplexity",
-        },
-      ],
-    },
-    {
       title: "IDEs / Tools",
       content: [
         {
@@ -196,27 +195,15 @@ export const StoreSkillData = defineStore("skillData", () => {
         },
         {
           svg: "",
-          name: "HBuilderX",
-        },
-        {
-          svg: "",
           name: "PyCharm",
         },
         {
           svg: "",
-          name: "Git",
+          name: "Git / GitHub",
         },
         {
           svg: "",
-          name: "Github",
-        },
-        {
-          svg: "",
-          name: "Postman",
-        },
-        {
-          svg: "",
-          name: "Apifox",
+          name: "Postman/ Apifox",
         },
       ],
     },
