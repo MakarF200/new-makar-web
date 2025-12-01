@@ -77,6 +77,12 @@ const router = createRouter({
           "@/views/contentview/freelance/web-design-content/web-price-detail.vue"
         ),
     },
+    // 简历路由
+    {
+      path: "/resume",
+      name: "resume",
+      component: () => import("@/views/contentview/resume/resume.vue"),
+    },
     // 测试用路由
     {
       path: "/test",
