@@ -104,8 +104,8 @@ export const StoreProjectData = defineStore(
       // MES-system-in-company
       {
         id: "02",
-        key: "MES/WMS/OA-system-in-company",
-        name: "MES/WMS/OA system in company",
+        key: "MES-WMS-OA-system-in-company",
+        name: "MES-WMS-OA system in company",
         titleImg: {
           imgUrl:
             "https://res.cloudinary.com/dzhf0gkvi/image/upload/v1735024390/MES-KuTangGuo_purh3n.png",
