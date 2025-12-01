@@ -2,14 +2,14 @@
   <!-- makar头像 -->
   <div class="flex flex-col">
     <div
-      class="menu bg-purple-100 rounded-box w-full place-content-evenly flex-auto h-15vh"
+      class="flex-auto place-content-evenly w-full bg-purple-100 menu rounded-box h-15vh"
     >
       <!-- <RouterLink to="/" class="p-0"> -->
       <div class="flex justify-center items-center">
         <div class="flex justify-center items-center">
           <img
             style="height: 75%; width: 75%"
-            class="rounded-full justify-center items-center"
+            class="justify-center items-center rounded-full"
             src="/makarpic.png"
           />
         </div>
@@ -17,19 +17,19 @@
       <!-- </RouterLink> -->
     </div>
     <!-- 目录 -->
-    <div class="mt-2 mb-2 h-60vh flex-auto">
+    <div class="flex-auto mt-2 mb-2 h-60vh">
       <Transition>
-        <div v-if="asideData.basicView" class="basic-menu h-full">
+        <div v-if="asideData.basicView" class="h-full basic-menu">
           <BasicMenu></BasicMenu>
         </div>
       </Transition>
       <Transition>
-        <div v-if="asideData.minView" class="min-menu h-full">
+        <div v-if="asideData.minView" class="h-full min-menu">
           <MinMenu></MinMenu>
         </div>
       </Transition>
       <Transition>
-        <div v-if="asideData.blogView" class="blog-menu h-full">
+        <div v-if="asideData.blogView" class="h-full blog-menu">
           <BlogMenu></BlogMenu>
         </div>
       </Transition>
@@ -39,8 +39,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref, computed } from "vue";
-import { RouterLink, RouterView } from "vue-router";
+import { computed } from "vue";
 import { PiniaAsideData } from "@/stores/aside-store";
 
 const asideStore = PiniaAsideData();

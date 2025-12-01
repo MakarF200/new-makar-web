@@ -7,11 +7,21 @@
     >
       <!-- Header -->
       <header class="pb-8 mb-12 border-b border-gray-200">
-        <h1
-          class="mb-8 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
-        >
-          Wu Yunyu
-        </h1>
+        <div class="flex justify-between items-center">
+          <h1
+            class="mb-8 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl"
+          >
+            Wu Yunyu
+          </h1>
+          <div>
+            <button
+              class="rounded-full btn btn-primary btn-2xl"
+              @click="downloadResume"
+            >
+              download
+            </button>
+          </div>
+        </div>
         <p class="mb-6 text-xl font-medium text-gray-600">
           Full-Stack Engineer | React / Next.js / FastAPI / Automation Systems
         </p>
@@ -667,6 +677,15 @@
 <script setup lang="ts">
 // No script needed for static content
 import PointIcon from "@/../public/svg/point.svg";
+
+const downloadResume = () => {
+  const link = document.createElement("a");
+  link.href = "/pdf/WuYunyu_frontend_remote_25.11 (3).pdf";
+  link.download = "WuYunyu_frontend_remote.pdf";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 </script>
 
 <style scoped>
