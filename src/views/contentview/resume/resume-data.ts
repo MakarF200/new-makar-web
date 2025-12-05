@@ -284,7 +284,7 @@ export const resumeData: Record<string, ResumeData> = {
       results: "成果",
     },
     header: {
-      name: "吴云宇",
+      name: "吴运宇",
       title: "全栈工程师 | React / Next.js / FastAPI / 自动化系统",
       info: {
         details: "男 · 24岁 · 2年经验",
@@ -479,7 +479,7 @@ export const resumeData: Record<string, ResumeData> = {
       results: "成果",
     },
     header: {
-      name: "吳雲宇",
+      name: "吳運宇",
       title: "全端工程師 | React / Next.js / FastAPI / 自動化系統",
       info: {
         details: "男 · 24歲 · 2年經驗",
