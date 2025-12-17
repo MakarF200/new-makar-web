@@ -296,11 +296,11 @@ export const resumeData: Record<string, ResumeData> = {
     summary: {
       title: "个人总结",
       content:
-        "拥有丰富的 <strong>React/Next.js</strong>、<strong>FastAPI</strong> 和 <strong>自动化系统</strong> 开发经验的全栈工程师。擅长构建可扩展的全栈应用，集成 <strong>LLM (Qwen / LLaMA)</strong>，以及设计多设备自动化架构。具备独立完成端到端开发的能力，并有与分布式远程团队协作的经验。",
+        "具有 2 年以上 Web 全栈开发经验，熟悉 <strong>React/Next.js/Vue.js</strong> 前端开发，并具备 <strong>FastAPI</strong> 后端与 <strong>自动化系统</strong> 的实际项目经验。<br/><br/>参与并主导过多设备自动化系统、AI 新闻聚合平台及企业级管理系统的开发，能够独立完成从 <strong>前端、后端、数据库到部署</strong> 的完整开发流程。<br/><br/>对 <strong>自动化</strong>、<strong>LLM 应用</strong> 与 <strong>系统稳定性</strong> 有深入实践，具备较强的问题分析和落地能力。",
     },
     intention: {
       title: "求职意向",
-      items: ["前端 / 全栈工程师 (远程)", "全球机会"],
+      items: ["前端 / 全栈工程师 (全职)"],
     },
     education: {
       title: "教育背景",
@@ -466,8 +466,8 @@ export const resumeData: Record<string, ResumeData> = {
     footer: "吴运宇. 保留所有权利.",
     download: {
       text: "下载简历",
-      filename: "WuYunyu_frontend_remote_en.pdf",
-      url: "/pdf/WuYunyu_frontend_remote_25.11_en.pdf", // Note: Need to update this if there is a Chinese PDF. Assuming use English PDF or same link for now as user didn't provide Chinese PDF link explicitly in "new" info, but let's stick to what we have. Actually the prompt implies 3 different resumes. I'll use placeholders for Chinese PDFs or same one if not available.
+      filename: "吴运宇_FE_FS_CN_25.12.pdf",
+      url: "/pdf/WuYunyu_FE_China_25.12.pdf",
     },
   },
   tw: {
